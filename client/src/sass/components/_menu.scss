@@ -1,0 +1,38 @@
+@use '../abstracts' as *;
+
+.menu {
+  margin: 0 auto;
+
+  & > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    list-style: none;
+
+    & li a {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      width: 18.6rem;
+      padding: 0.8rem 3rem;
+      border-radius: 0.8rem;
+
+      text-decoration: none;
+      color: $txt-color-medium;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: $menu-hover-color;
+      }
+
+      &:active {
+        background-color: $menu-active-color;
+      }
+
+      & span {
+        flex-grow: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use '../abstracts/colors' as *;
+
+.greeting {
+  & h1 {
+    font-size: 4.8rem;
+    font-weight: 400;
+  }
+
+  & span {
+    color: $primary-color-light;
+    font-size: 6.4rem;
+    font-weight: 700;
+  }
+}

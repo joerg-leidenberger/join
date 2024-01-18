@@ -1,0 +1,13 @@
+@use '../abstracts' as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 23.2rem;
+  padding-top: 4rem;
+  padding-bottom: 6.6rem;
+
+  background-color: $secondary-color-light;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+}

@@ -1,0 +1,58 @@
+@use '../abstracts' as *;
+
+.header {
+  width: 100%;
+  height: 9.6rem;
+  background-color: $primary-color-light;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px 39px 20px 39px;
+  position: fixed;
+  top: 0;
+
+  font-size: 1.9rem;
+  line-height: 2.28rem;
+  color: $txt-color-light;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo {
+    width: 4.593rem;
+    height: 5.6rem;
+  }
+
+  &__menu {
+    width: 43.3rem;
+    height: 5.6rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__user {
+    border: $txt-color-light 3px solid;
+    border-radius: 50%;
+    width: 5.6rem;
+    height: 5.6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > span {
+      background-color: $secondary-color-light;
+      border-radius: 50%;
+      width: 4.612rem;
+      height: 4.612rem;
+
+      font-weight: 700;
+      color: $primary-color-dark;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

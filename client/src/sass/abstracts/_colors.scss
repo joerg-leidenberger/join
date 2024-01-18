@@ -1,0 +1,14 @@
+@use 'sass:color';
+
+$heading-color-h1: hsla(215, 26%, 22%, 1);
+
+$primary-color-light: hsla(218, 100%, 64%, 1);
+$primary-color-dark: hsla(218, 100%, 50%, 1);
+$secondary-color-light: hsla(0, 0%, 100%, 1);
+
+$txt-color-light: hsla(0, 0%, 100%, 1);
+$txt-color-medium: hsla(218, 25%, 35%, 1);
+$txt-color-dark: hsla(0, 0%, 0%, 1);
+
+$menu-active-color: hsla(218, 100%, 91%, 1);
+$menu-hover-color: hsla(217, 100%, 95%, 1);

@@ -1,0 +1,20 @@
+.summaryUser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7.2rem;
+
+  width: 100%;
+
+  &__wrapper--top {
+    display: flex;
+    gap: 3.6rem;
+  }
+
+  &__wrapper--bottom {
+    display: flex;
+    gap: 3.6rem;
+    margin-top: -4rem;
+  }
+}
