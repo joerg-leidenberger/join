@@ -1,11 +1,11 @@
-import { boardsummery, urgent } from '../assets/img/img';
+import { boardsummery, urgent } from '../../assets/img/img';
 
 type Props = {
   image: string;
   title: string;
 };
 
-function TasksBtn({ image, title }: Props) {
+function TasksCard({ image, title }: Props) {
   const isTasksCount = image !== urgent ? 'tasksCount' : 'urgentTasksCount';
   const isBoardTask = image !== boardsummery ? '' : '19.1rem';
 
@@ -22,4 +22,4 @@ function TasksBtn({ image, title }: Props) {
     </div>
   );
 }
-export default TasksBtn;
+export default TasksCard;

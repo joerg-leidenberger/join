@@ -1,9 +1,9 @@
 import Legacy from '../components/Legacy';
-import Menu from '../components/Menu';
+import Menu from './Menu';
 
 function Sidebar() {
   return (
-    <div className="sidebar">
+    <div className='sidebar'>
       <Menu />
       <Legacy />
     </div>

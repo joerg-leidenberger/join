@@ -1,5 +1,5 @@
-import UrgencyInfoBtn from '../components/UrgencyInfoBtn';
-import TasksInfoBtn from '../components/TasksInfoBtn';
+import UrgencyInfoCard from '../components/card/UrgencyInfoCard';
+import TasksInfoCard from '../components/card/TasksInfoCard';
 import Layout from '../layout/Layout';
 import Greeting from '../components/Greeting';
 import {
@@ -14,17 +14,17 @@ function summary() {
   return (
     <>
       <Layout>
-        <div className="summaryUser">
+        <div className='summaryUser'>
           <Greeting />
-          <div className="summaryUser__wrapper--top">
-            <UrgencyInfoBtn />
-            <TasksInfoBtn image={boardsummery} title="Task in Board" />
+          <div className='summaryUser__wrapper--top'>
+            <UrgencyInfoCard />
+            <TasksInfoCard image={boardsummery} title='Task in Board' />
           </div>
-          <div className="summaryUser__wrapper--bottom">
-            <TasksInfoBtn image={todo} title="Tasks To-do" />
-            <TasksInfoBtn image={progress} title="Task in Progress" />
-            <TasksInfoBtn image={feedback} title="Awaiting Feedback" />
-            <TasksInfoBtn image={done} title="Tasks Done" />
+          <div className='summaryUser__wrapper--bottom'>
+            <TasksInfoCard image={todo} title='Tasks To-do' />
+            <TasksInfoCard image={progress} title='Task in Progress' />
+            <TasksInfoCard image={feedback} title='Awaiting Feedback' />
+            <TasksInfoCard image={done} title='Tasks Done' />
           </div>
         </div>
       </Layout>
