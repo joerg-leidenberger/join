@@ -1,32 +1,33 @@
 import { add_task, board, calendar, summary } from '../assets/img/img';
+import { NavLink } from 'react-router-dom';
 
 function Menu() {
   return (
-    <div className="menu">
+    <div className='menu'>
       <ul>
         <li>
-          <a href="#">
-            <img src={summary} alt="summary icon" />
+          <NavLink to='/'>
+            <img src={summary} alt='summary icon' />
             <span>Summary</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">
-            <img src={add_task} alt="add task icon" />
+          <NavLink to='AddTask'>
+            <img src={add_task} alt='add task icon' />
             <span>Add Task</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">
-            <img src={board} alt="board icon" />
+          <NavLink to='Board'>
+            <img src={board} alt='board icon' />
             <span>Board</span>
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#">
-            <img src={calendar} alt="contacts icon" />
+          <NavLink to='Contacts'>
+            <img src={calendar} alt='contacts icon' />
             <span>Contacts</span>
-          </a>
+          </NavLink>
         </li>
       </ul>
     </div>

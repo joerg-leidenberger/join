@@ -1,5 +1,5 @@
 import Legacy from '../components/Legacy';
-import Menu from './Menu';
+import Menu from '../layout/Menu';
 
 function Sidebar() {
   return (
