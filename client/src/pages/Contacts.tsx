@@ -1,4 +1,10 @@
+import ContactList from '../components/ContactList';
+
 function Contacts() {
-  return <div>Contacts</div>;
+  return (
+    <div className='contacts'>
+      <ContactList />
+    </div>
+  );
 }
 export default Contacts;

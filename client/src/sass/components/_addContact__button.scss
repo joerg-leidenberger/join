@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+.addContact__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  width: 35.7rem;
+  height: 5.6rem;
+  border: 1px solid $primary-color-light;
+  border-radius: 1rem;
+  padding: 1.6rem 1rem 1.6rem 1rem;
+  background-color: $primary-color-light;
+
+  font-size: 2.3rem;
+  color: $txt-color-light;
+  font-weight: 400;
+}
