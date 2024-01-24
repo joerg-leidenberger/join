@@ -12,6 +12,8 @@ import progress from './progress.png';
 import todo from './todo.png';
 import urgent from './urgent.png';
 import addContact from './person_add.svg';
+import editIcon from './edit.svg';
+import deleteIcon from './delete.svg';
 
 export {
   add_task,
@@ -28,4 +30,6 @@ export {
   todo,
   urgent,
   addContact,
+  editIcon,
+  deleteIcon,
 };
