@@ -7,7 +7,14 @@
 
 @font-face {
   font-family: 'Open Sans';
-  font-style: bold;
+  font-style: normal;
   font-weight: 700;
   src: url(../assets/fonts/OpenSans-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../assets/fonts/Inter-Medium.ttf) format('truetype');
 }
