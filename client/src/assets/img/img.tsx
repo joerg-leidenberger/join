@@ -14,6 +14,7 @@ import urgent from './urgent.png';
 import addContact from './person_add.svg';
 import editIcon from './edit.svg';
 import deleteIcon from './delete.svg';
+import eventIcon from './event.svg';
 
 export {
   add_task,
@@ -32,4 +33,5 @@ export {
   addContact,
   editIcon,
   deleteIcon,
+  eventIcon,
 };
