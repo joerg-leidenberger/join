@@ -1,3 +1,27 @@
+@use '../abstracts/' as *;
+
 .addTask {
   display: flex;
+
+  &__form {
+    width: 45.6rem;
+    height: 100%;
+    padding: 64px 24px 0px 24px;
+
+    overflow-y: scroll;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+label {
+  font-size: 1.9rem;
+  font-weight: 700;
+  & span {
+    font-weight: 400;
+  }
 }

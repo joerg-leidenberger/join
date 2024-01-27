@@ -4,8 +4,11 @@
 @use 'urgencyInfoCard';
 @use 'tasksCount';
 @use 'urgentTasksCount';
-@use 'addContact__button';
+@use 'addContactBtn';
 @use 'contactList';
 @use 'contactTable';
 @use 'contactInfo';
-@use 'addTaskForm';
+@use 'addTask';
+@use 'formEnterTitle';
+@use 'formDescription';
+@use 'formDate';

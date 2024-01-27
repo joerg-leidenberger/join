@@ -1,0 +1,16 @@
+@use '../abstracts/' as *;
+
+.formDescription {
+  font-size: 1.9rem;
+
+  width: 100%;
+  height: 10.3rem;
+  padding: 1.8rem 1.6rem;
+
+  border: 1px solid $bottom-border-color;
+  border-radius: 0px 10px 10px 10px;
+
+  &::placeholder {
+    color: $txt-color-placeholder;
+  }
+}

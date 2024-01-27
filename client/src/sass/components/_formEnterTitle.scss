@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.formEnterTitle {
+  font-size: 3.2rem;
+  font-weight: 600;
+
+  width: 100%;
+  padding: 1.3rem 1.6rem;
+
+  border: none;
+  border-bottom: 1px solid $bottom-border-color;
+
+  &::placeholder {
+    color: $txt-color-placeholder;
+    font-weight: 400;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
