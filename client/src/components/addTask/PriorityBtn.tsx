@@ -1,7 +1,16 @@
-function PriorityBtn() {
+type Props = {
+  prio: string;
+};
+
+function PriorityBtn({ prio }: Props) {
   return (
-    <button type='button' name='priority' value='wichtig'>
-      Wichtig
+    <button
+      className='formPriorityBtn'
+      type='button'
+      name='priority'
+      value='wichtig'
+    >
+      {prio}
     </button>
   );
 }

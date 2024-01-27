@@ -2,7 +2,7 @@ function EnterTitle() {
   return (
     <label>
       <input
-        className='formEnterTitle'
+        className='inputTitle'
         type='text'
         name='title'
         placeholder='Enter a title'

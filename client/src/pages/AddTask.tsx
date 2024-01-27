@@ -1,6 +1,7 @@
 import Description from '../components/addTask/Description';
+import DueDate from '../components/addTask/DueDate';
 import EnterTitle from '../components/addTask/EnterTitle';
-import PriorityBtn from '../components/addTask/PriorityBtn';
+import Priority from '../components/addTask/Priority';
 
 function AddTask() {
   return (
@@ -9,14 +10,8 @@ function AddTask() {
         <form>
           <EnterTitle />
           <Description />
-          <label>
-            Priority: <br />
-            <div>
-              <PriorityBtn />
-              <PriorityBtn />
-              <PriorityBtn />
-            </div>
-          </label>
+          <DueDate />
+          <Priority />
         </form>
       </div>
     </div>

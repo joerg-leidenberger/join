@@ -1,19 +1,13 @@
 function Description() {
   return (
-    <>
-      <label>
-        Description <span>(optional)</span> <br />
-        <textarea
-          className='formDescription'
-          name='description'
-          placeholder='Enter a Description'
-        ></textarea>
-      </label>
-      <label>
-        Due date <br />
-        <input className='formDate' type='date' name='date' id='date' />
-      </label>
-    </>
+    <label>
+      Description <span>(optional)</span> <br />
+      <textarea
+        className='inputDescription'
+        name='description'
+        placeholder='Enter a Description'
+      ></textarea>
+    </label>
   );
 }
 export default Description;
