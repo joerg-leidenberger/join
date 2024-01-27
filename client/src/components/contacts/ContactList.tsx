@@ -1,4 +1,4 @@
-import AddContactBtn from './button/AddContactBtn';
+import AddContactBtn from './AddContactBtn';
 import ContactTable from './ContactTable';
 
 function ContactList() {

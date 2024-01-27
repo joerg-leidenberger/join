@@ -1,5 +1,5 @@
-import ContactList from '../components/ContactList';
-import ContactInfo from '../components/ContactInfo';
+import ContactList from '../components/contacts/ContactList';
+import ContactInfo from '../components/contacts/ContactInfo';
 
 function Contacts() {
   return (

@@ -1,4 +1,4 @@
-import { deleteIcon, editIcon } from '../assets/img/img';
+import { deleteIcon, editIcon } from '../../assets/img/img';
 
 function ContactInfo() {
   return (

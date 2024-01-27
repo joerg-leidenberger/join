@@ -1,5 +1,5 @@
-import UrgencyInfoCard from '../components/card/UrgencyInfoCard';
-import TasksInfoCard from '../components/card/TasksInfoCard';
+import UrgencyInfoCard from '../components/summary/UrgencyInfoCard';
+import TasksInfoCard from '../components/summary/TasksInfoCard';
 import Greeting from '../components/Greeting';
 import {
   boardsummery,
