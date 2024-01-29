@@ -15,6 +15,9 @@ import addContact from './person_add.svg';
 import editIcon from './edit.svg';
 import deleteIcon from './delete.svg';
 import eventIcon from './event.svg';
+import prioalta from './prioalta.svg';
+import priomedia from './priomedia.svg';
+import priobaja from './priobaja.svg';
 
 export {
   add_task,
@@ -34,4 +37,7 @@ export {
   editIcon,
   deleteIcon,
   eventIcon,
+  prioalta,
+  priomedia,
+  priobaja,
 };
