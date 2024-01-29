@@ -17,7 +17,12 @@ function PriorityBtn({ prio }: Props) {
   };
 
   return (
-    <button className='priorityBtn' type='button' name='priority' value={prio}>
+    <button
+      className={`priorityBtn priorityBtn__hover-${prio.toLowerCase()}`}
+      type='button'
+      name='priority'
+      value={prio}
+    >
       {prio} <img src={getImageForPriority()} alt={prio} />
     </button>
   );
