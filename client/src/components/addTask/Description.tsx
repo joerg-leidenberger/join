@@ -1,7 +1,9 @@
 function Description() {
   return (
     <label>
-      Description <span>(optional)</span> <br />
+      <div className='addTask__title'>
+        Description <span>(optional)</span>
+      </div>
       <textarea
         className='inputDescription'
         name='description'

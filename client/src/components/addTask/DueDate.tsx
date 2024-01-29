@@ -1,7 +1,7 @@
 function DueDate() {
   return (
     <label>
-      Due date <br />
+      <div className='addTask__title'>Due date</div>
       <input className='inputDueDate' type='date' name='date' id='date' />
     </label>
   );

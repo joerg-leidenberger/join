@@ -3,7 +3,7 @@ import PriorityBtn from './PriorityBtn';
 function Priority() {
   return (
     <label>
-      Priority: <br />
+      <div className='addTask__title'>Priority:</div>
       <div className='priority'>
         <PriorityBtn prio='Urgent' />
         <PriorityBtn prio='Medium' />

@@ -4,6 +4,10 @@
   display: flex;
 
   &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
     color: $txt-color-medium;
 
     width: 48.8rem;
@@ -12,18 +16,18 @@
 
     overflow-y: scroll;
   }
+  &__title {
+    margin-bottom: 0.8rem;
+    font-size: 1.9rem;
+    font-weight: 700;
+    & span {
+      font-weight: 400;
+    }
+  }
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-}
-
-label {
-  font-size: 1.9rem;
-  font-weight: 700;
-  & span {
-    font-weight: 400;
-  }
 }
