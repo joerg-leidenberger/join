@@ -18,6 +18,9 @@ import eventIcon from './event.svg';
 import prioalta from './prioalta.svg';
 import priomedia from './priomedia.svg';
 import priobaja from './priobaja.svg';
+import arrowDropDown from './arrow_drop_down.svg';
+import checkButton from './checkbutton.svg';
+import checkButtonChecked from './checkbutton-checked.svg';
 
 export {
   add_task,
@@ -40,4 +43,7 @@ export {
   prioalta,
   priomedia,
   priobaja,
+  arrowDropDown,
+  checkButton,
+  checkButtonChecked,
 };
