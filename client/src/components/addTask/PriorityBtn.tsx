@@ -1,16 +1,24 @@
+import { prioalta, priobaja, priomedia } from '../../assets/img/img';
+
 type Props = {
-  prio: string;
+  prio: 'Urgent' | 'Medium' | 'Low';
 };
 
 function PriorityBtn({ prio }: Props) {
+  const getImageForPriority = () => {
+    switch (prio) {
+      case 'Urgent':
+        return prioalta;
+      case 'Medium':
+        return priomedia;
+      case 'Low':
+        return priobaja;
+    }
+  };
+
   return (
-    <button
-      className='formPriorityBtn'
-      type='button'
-      name='priority'
-      value='wichtig'
-    >
-      {prio}
+    <button className='priorityBtn' type='button' name='priority' value={prio}>
+      {prio} <img src={getImageForPriority()} alt={prio} />
     </button>
   );
 }
