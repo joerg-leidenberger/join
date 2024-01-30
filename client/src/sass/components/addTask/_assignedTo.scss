@@ -6,6 +6,10 @@
     align-items: center;
     border-bottom: 1px solid $bottom-border-color;
     cursor: pointer;
+
+    &:hover {
+      border-bottom: 1px solid $primary-color-dark;
+    }
   }
   &__input {
     cursor: pointer;
