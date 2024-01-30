@@ -2,9 +2,15 @@ import { prioalta, priobaja, priomedia } from '../../assets/img/img';
 
 type Props = {
   prio: 'Urgent' | 'Medium' | 'Low';
+  active: boolean;
+  onClick: () => void;
 };
 
-function PriorityBtn({ prio }: Props) {
+function PriorityBtn({ prio, active, onClick }: Props) {
+  const activeButton = () => {
+    return active ? 'active' : '';
+  };
+
   const getImageForPriority = () => {
     switch (prio) {
       case 'Urgent':
@@ -18,12 +24,13 @@ function PriorityBtn({ prio }: Props) {
 
   return (
     <button
-      className={`priorityBtn priorityBtn__hover-${prio.toLowerCase()}`}
+      className={`priorityBtn priorityBtn__hover-${prio.toLowerCase()} priorityBtn__${activeButton()}-${prio.toLowerCase()}`}
       type='button'
       name='priority'
       value={prio}
+      onClick={onClick}
     >
-      {prio} <img src={getImageForPriority()} alt={prio} />
+      {prio} <img src={getImageForPriority()} alt={`${prio} icon`} />
     </button>
   );
 }

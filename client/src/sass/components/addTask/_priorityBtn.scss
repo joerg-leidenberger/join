@@ -25,6 +25,36 @@
     }
   }
 
+  &__active-urgent {
+    color: $secondary-color-light;
+    background-color: $priority-color-urgent;
+    border-bottom: 2px solid $priority-color-urgent;
+
+    & img {
+      filter: brightness(100);
+    }
+  }
+
+  &__active-medium {
+    color: $secondary-color-light;
+    background-color: $priority-color-medium;
+    border-bottom: 2px solid $priority-color-medium;
+
+    & img {
+      filter: brightness(100);
+    }
+  }
+
+  &__active-low {
+    color: $secondary-color-light;
+    background-color: $priority-color-low;
+    border-bottom: 2px solid $priority-color-low;
+
+    & img {
+      filter: brightness(100);
+    }
+  }
+
   & img {
     margin-left: 1rem;
     vertical-align: middle;
