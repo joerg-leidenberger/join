@@ -1,4 +1,5 @@
 import AssignedTo from '../components/addTask/AssignedTo';
+import Category from '../components/addTask/Category';
 import Description from '../components/addTask/Description';
 import DueDate from '../components/addTask/DueDate';
 import EnterTitle from '../components/addTask/EnterTitle';
@@ -14,6 +15,7 @@ function AddTask() {
           <DueDate />
           <Priority />
           <AssignedTo />
+          <Category />
         </form>
       </div>
     </div>
