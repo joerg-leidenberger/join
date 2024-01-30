@@ -26,13 +26,24 @@
   }
 
   &__arrowIcon {
+    width: 2.4rem;
+    height: 2.4rem;
+
     display: flex;
     justify-content: center;
     align-items: center;
     padding-right: 1.6rem;
 
-    width: 2.4rem;
-    height: 2.4rem;
+    &-rotateDown {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+      transform-origin: center;
+    }
+    &-rotateUp {
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+      transform-origin: center;
+    }
   }
 
   &__contactList {

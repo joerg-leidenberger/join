@@ -3,8 +3,13 @@ import { arrowDropDown, checkButton } from '../../assets/img/img';
 
 function AssignedTo() {
   const [assignedToInputValue, setAssignedToInputValue] = useState('');
+  const [iconIsRotated, setIconIsRotated] = useState(false);
   const [showContactList, setShowContactList] = useState(false);
   const [placeholder, setPlaceholder] = useState('Select contacts to assign');
+
+  const handleIconRotate = () => {
+    setIconIsRotated(!iconIsRotated);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAssignedToInputValue(e.target.value);
@@ -25,6 +30,7 @@ function AssignedTo() {
   const openContactList = () => {
     setShowContactList(true);
     setPlaceholder('');
+    setIconIsRotated(true);
   };
 
   return (
@@ -48,9 +54,18 @@ function AssignedTo() {
             onClick={() => {
               toggleContactList();
               handleInputValue();
+              handleIconRotate();
             }}
           >
-            <img src={arrowDropDown} alt='arrow icon' />
+            <img
+              src={arrowDropDown}
+              alt='arrow icon'
+              className={`${
+                iconIsRotated
+                  ? 'assignedTo__arrowIcon-rotateDown'
+                  : 'assignedTo__arrowIcon-rotateUp'
+              }`}
+            />
           </span>
         </div>
         {showContactList && (
