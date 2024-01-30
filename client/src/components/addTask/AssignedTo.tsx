@@ -8,7 +8,7 @@ function AssignedTo() {
   };
 
   return (
-    <label>
+    <>
       <div className='assignedTo'>
         <div className='addTask__title'>
           Assigned to <span>(optional)</span>
@@ -110,7 +110,7 @@ function AssignedTo() {
           </div>
         )}
       </div>
-    </label>
+    </>
   );
 }
 export default AssignedTo;
