@@ -1,0 +1,93 @@
+@use '../../abstracts/' as *;
+
+.subtasks {
+  &__borderBottom {
+    border-bottom: 1px solid $bottom-border-color;
+
+    &:hover {
+      border-bottom: 1px solid $primary-color-dark;
+    }
+  }
+
+  &__inputContainer {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.6rem;
+  }
+
+  &__input {
+    cursor: pointer;
+
+    color: $txt-color-dark;
+    font-size: 1.9rem;
+
+    border: none;
+
+    &::placeholder {
+      color: $txt-color-placeholder;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__iconContainer {
+    display: flex;
+    gap: 0.22rem;
+
+    &-list {
+      margin-left: auto;
+    }
+  }
+
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover path {
+      fill: $primary-color-dark;
+    }
+
+    &:hover {
+      border-radius: 50%;
+      background-color: $menu-active-color;
+    }
+  }
+
+  &__line {
+    border-left: 1px solid $bottom-border-color;
+  }
+
+  &__list {
+    color: $txt-color-dark;
+    font-size: 1.6rem;
+
+    & ul {
+      list-style: none;
+    }
+
+    & li {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      height: 3.2rem;
+      padding: 0.6rem 1.6rem;
+      margin-top: 0.4rem;
+
+      border-radius: 1.8rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $menu-hover-color;
+      }
+      &::before {
+        content: '•';
+        margin: 0 1rem 0 1rem;
+      }
+    }
+  }
+}
