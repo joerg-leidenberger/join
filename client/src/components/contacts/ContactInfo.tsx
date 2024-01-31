@@ -1,4 +1,4 @@
-import { deleteIcon, editIcon } from '../../assets/img/img';
+import { deleteSVG, editSVG } from '../../assets/img/img';
 
 function ContactInfo() {
   return (
@@ -9,12 +9,8 @@ function ContactInfo() {
           <div className='contactInfo__name'>
             <div>Anton Mayer</div>
             <div>
-              <span>
-                <img src={editIcon} alt='edit icon' /> Edit
-              </span>
-              <span>
-                <img src={deleteIcon} alt='delete icon' /> Delete
-              </span>
+              <span>{editSVG()} Edit</span>
+              <span>{deleteSVG()} Delete</span>
             </div>
           </div>
         </div>
