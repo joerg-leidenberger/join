@@ -21,6 +21,9 @@ import priobaja from './priobaja.svg';
 import arrowDropDown from './arrow_drop_down.svg';
 import checkButton from './checkbutton.svg';
 import checkButtonChecked from './checkbutton-checked.svg';
+import add from './add.svg';
+import check from './check.svg';
+import close from './close.svg';
 
 export {
   add_task,
@@ -46,4 +49,7 @@ export {
   arrowDropDown,
   checkButton,
   checkButtonChecked,
+  add,
+  check,
+  close,
 };
