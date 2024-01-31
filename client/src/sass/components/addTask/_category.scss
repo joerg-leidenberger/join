@@ -1,43 +1,48 @@
 @use '../../abstracts/' as *;
 
 .category {
-  &__inputContainer {
-    display: flex;
-    align-items: center;
+  &__borderBottom {
     border-bottom: 1px solid $bottom-border-color;
-    cursor: pointer;
 
     &:hover {
       border-bottom: 1px solid $primary-color-dark;
     }
   }
+
+  &__inputContainer {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.6rem;
+  }
   &__input {
     cursor: pointer;
-    width: 100%;
-    padding: 1.2rem 0rem 1.2rem 1.6rem;
 
     color: $txt-color-dark;
     font-size: 1.9rem;
 
     border: none;
 
-    &::placeholder {
-      color: $txt-color-dark;
-    }
-
     &:focus {
       outline: none;
     }
   }
 
-  &__arrowIcon {
+  &__icon {
     width: 2.4rem;
     height: 2.4rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 1.6rem;
+
+    &:hover path {
+      fill: $primary-color-dark;
+    }
+
+    &:hover {
+      border-radius: 50%;
+      background-color: $menu-active-color;
+    }
 
     &-rotateDown {
       transform: rotate(180deg);

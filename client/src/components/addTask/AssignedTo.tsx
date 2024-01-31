@@ -39,7 +39,39 @@ function AssignedTo() {
         <div className='addTask__title'>
           Assigned to <span>(optional)</span>
         </div>
-        <div className='assignedTo__inputContainer'>
+        <div className='assignedTo__borderBottom'>
+          <div className='assignedTo__inputContainer'>
+            <input
+              className='assignedTo__input'
+              type='text'
+              id='assignedTo'
+              placeholder={placeholder}
+              onClick={openContactList}
+              onChange={handleInputChange}
+              value={assignedToInputValue}
+            ></input>
+            <div
+              className='assignedTo__icon'
+              onClick={() => {
+                toggleContactList();
+                handleInputValue();
+                handleIconRotate();
+              }}
+            >
+              <img
+                src={arrowDropDown}
+                alt='arrow icon'
+                className={`${
+                  iconIsRotated
+                    ? 'assignedTo__icon-rotateDown'
+                    : 'assignedTo__icon-rotateUp'
+                }`}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* <div className='assignedTo__inputContainer'>
           <input
             className='assignedTo__input'
             type='text'
@@ -67,7 +99,7 @@ function AssignedTo() {
               }`}
             />
           </span>
-        </div>
+        </div> */}
         {showContactList && (
           <div className='assignedTo__contactList'>
             <div>

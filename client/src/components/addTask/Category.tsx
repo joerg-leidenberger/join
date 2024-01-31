@@ -21,31 +21,33 @@ function Category() {
   return (
     <div className='category'>
       <div className='addTask__title'>Category</div>
-      <div
-        className='category__inputContainer'
-        onClick={() => {
-          toggleContactList();
-          handleIconRotate();
-        }}
-      >
-        <input
-          className='category__input'
-          type='text'
-          id='category'
-          value={activeCategory}
-          readOnly
-        ></input>
-        <span className='category__arrowIcon'>
-          <img
-            src={arrowDropDown}
-            alt='arrow icon'
-            className={`${
-              iconIsRotated
-                ? 'category__arrowIcon-rotateDown'
-                : 'category__arrowIcon-rotateUp'
-            }`}
-          />
-        </span>
+      <div className='category__borderBottom'>
+        <div
+          className='category__inputContainer'
+          onClick={() => {
+            toggleContactList();
+            handleIconRotate();
+          }}
+        >
+          <input
+            className='category__input'
+            type='text'
+            id='category'
+            value={activeCategory}
+            readOnly
+          ></input>
+          <div className='category__icon'>
+            <img
+              src={arrowDropDown}
+              alt='arrow icon'
+              className={`${
+                iconIsRotated
+                  ? 'category__icon-rotateDown'
+                  : 'category__icon-rotateUp'
+              }`}
+            />
+          </div>
+        </div>
       </div>
       {showCategoryList && (
         <div className='category__list'>
