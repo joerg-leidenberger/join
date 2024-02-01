@@ -16,3 +16,7 @@
 @use 'addTask/assignedTo';
 @use 'addTask/category';
 @use 'addTask/subtasks';
+@use 'board/boardHead';
+@use 'board/boardBody';
+@use 'board/noTask';
+@use 'board/taskCard';

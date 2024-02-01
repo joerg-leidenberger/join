@@ -1,0 +1,12 @@
+.boardBody {
+  display: flex;
+  gap: 2.4rem;
+
+  width: 120.8rem;
+  height: 21.5rem;
+  padding: 1.8rem 6.4rem 0rem 6.4rem;
+
+  &__column {
+    width: 25.2rem;
+  }
+}

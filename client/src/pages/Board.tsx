@@ -1,4 +1,12 @@
+import BoardHead from '../components/board/BoardHead';
+import BoardBody from '../components/board/BoardBody';
+
 function Board() {
-  return <div>Board</div>;
+  return (
+    <div className='board'>
+      <BoardHead />
+      <BoardBody />
+    </div>
+  );
 }
 export default Board;

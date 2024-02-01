@@ -7,7 +7,7 @@ $primary-color-dark: hsla(218, 100%, 50%, 1);
 $secondary-color-light: hsla(0, 0%, 100%, 1);
 
 $txt-color-light: hsla(0, 0%, 100%, 1);
-$txt-color-medium: #435370;
+$txt-color-medium: hsl(219, 25%, 35%);
 $txt-color-dark: hsla(0, 0%, 0%, 1);
 $txt-color-placeholder: hsl(0, 0%, 82%);
 
@@ -16,6 +16,11 @@ $menu-hover-color: hsla(217, 100%, 95%, 1);
 
 $bottom-border-color: hsl(0, 0%, 82%);
 
+$button-color-activ: hsla(216, 69%, 11%, 1);
+
 $priority-color-urgent: hsla(14, 100%, 50%, 1);
 $priority-color-medium: hsla(40, 100%, 50%, 1);
 $priority-color-low: hsla(94, 76%, 52%, 1);
+
+$userstory-color: hsla(29, 100%, 50%, 1);
+$technicaltask-color: hsla(227, 100%, 50%, 1);
