@@ -1,6 +1,17 @@
-function TaskCard() {
+import React from 'react';
+
+type Props = {
+  id: string;
+  title: string;
+};
+
+function TaskCard({ id }: Props) {
+  const handleDragStart = (e: React.DragEvent) => {
+    e.dataTransfer.setData('text/plain', id);
+  };
+
   return (
-    <div className='taskCard'>
+    <div className='taskCard' draggable='true' onDragStart={handleDragStart}>
       <div className='taskCard__category'>User Story</div>
       <div>
         <div className='taskCard__title'>
