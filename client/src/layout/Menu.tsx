@@ -6,25 +6,25 @@ function Menu() {
     <div className='menu'>
       <ul>
         <li>
-          <NavLink to='/'>
+          <NavLink to='../summary'>
             <img src={summary} alt='summary icon' />
             <span>Summary</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to='AddTask'>
+          <NavLink to='../addTask'>
             <img src={add_task} alt='add task icon' />
             <span>Add Task</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to='Board'>
+          <NavLink to='../board'>
             <img src={board} alt='board icon' />
             <span>Board</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to='Contacts'>
+          <NavLink to='../contacts'>
             <img src={calendar} alt='contacts icon' />
             <span>Contacts</span>
           </NavLink>
