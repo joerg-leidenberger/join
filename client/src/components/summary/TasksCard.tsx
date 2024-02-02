@@ -2,7 +2,7 @@ import { boardsummery, urgent } from '../../assets/img/img';
 
 type Props = {
   image: string;
-  title: string;
+  title: string | React.ReactNode;
 };
 
 function TasksCard({ image, title }: Props) {
@@ -11,14 +11,16 @@ function TasksCard({ image, title }: Props) {
 
   return (
     <div className={isTasksCount} style={{ height: `${isBoardTask}` }}>
-      <div className={isTasksCount + '__wrapper'}>
-        <div
-          className={isTasksCount + '__img'}
-          style={{ backgroundImage: `url(${image})` }}
-        ></div>
-        <span className={isTasksCount + '__number'}>1</span>
+      <div className={isTasksCount + '__container'}>
+        <div className={isTasksCount + '__wrapper'}>
+          <div
+            className={isTasksCount + '__img'}
+            style={{ backgroundImage: `url(${image})` }}
+          ></div>
+          <span className={isTasksCount + '__number'}>1</span>
+        </div>
+        <div className={isTasksCount + '__title'}>{title}</div>
       </div>
-      <div className={isTasksCount + '__title'}>{title}</div>
     </div>
   );
 }

@@ -22,7 +22,14 @@ function summary() {
           <TasksInfoCard image={todo} title='Tasks To-do' />
           <TasksInfoCard image={progress} title='Task in Progress' />
           <TasksInfoCard image={feedback} title='Awaiting Feedback' />
-          <TasksInfoCard image={done} title='Tasks Done' />
+          <TasksInfoCard
+            image={done}
+            title={
+              <span>
+                Tasks <br /> Done
+              </span>
+            }
+          />
         </div>
       </div>
     </>
