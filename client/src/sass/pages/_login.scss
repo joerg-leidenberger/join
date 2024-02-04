@@ -9,7 +9,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.5);
-    fill: $secondary-color-light; /* Startfarbe */
+    fill: $secondary-color-light;
   }
   100% {
     position: absolute;
@@ -25,7 +25,7 @@
 @keyframes path {
   0%,
   40% {
-    fill: $secondary-color-light; /* Startfarbe */
+    fill: $secondary-color-light;
   }
 
   100% {
@@ -142,13 +142,18 @@
     flex-direction: column;
     gap: 4rem;
 
+    &__inputContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.1rem;
+      border-bottom: 1px solid $bottom-border-color;
+    }
+
     & input {
       font-size: 1.9rem;
-
-      padding: 1.2rem 2.1rem;
       outline: none;
       border: none;
-      border-bottom: 1px solid $bottom-border-color;
 
       &::placeholder {
         color: $bottom-border-color;

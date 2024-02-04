@@ -14,8 +14,14 @@ function Login() {
         <div className='login__body'>
           <div className='login__headline'>Log in</div>
           <div className='login__form'>
-            <input type='text' placeholder='Email' />
-            <input type='text' placeholder='Password' />
+            <div className='login__form__inputContainer'>
+              <input type='text' placeholder='Email' />
+              <img src='src/assets/img/mail.svg' alt='mail icon' />
+            </div>
+            <div className='login__form__inputContainer'>
+              <input type='text' placeholder='Password' />
+              <img src='src/assets/img/lock.svg' alt='lock icon' />
+            </div>
             <input
               className='login__form__checkbox'
               id='checkbox'
