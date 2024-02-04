@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { joinSVG } from '../assets/img/img';
 
 function Login() {
@@ -8,36 +9,54 @@ function Login() {
         <div className='login__head'>
           <div className='login__logo'>{joinSVG()}</div>
           <div className='login__signUp'>
-            <div>Not a Join user?</div> <button>Sign up</button>
+            <div>Not a Join user?</div>{' '}
+            <Link to='/signUp'>
+              <button tabIndex={6}>Sign up</button>
+            </Link>
           </div>
         </div>
         <div className='login__body'>
           <div className='login__headline'>Log in</div>
-          <div className='login__form'>
-            <div className='login__form__inputContainer'>
-              <input type='text' placeholder='Email' />
+          <form className='login__form'>
+            <label className='login__form__inputContainer'>
+              <input type='text' placeholder='Email' required tabIndex={1} />
               <img src='src/assets/img/mail.svg' alt='mail icon' />
-            </div>
-            <div className='login__form__inputContainer'>
-              <input type='text' placeholder='Password' />
+            </label>
+            <label className='login__form__inputContainer'>
+              <input type='text' placeholder='Password' required tabIndex={2} />
               <img src='src/assets/img/lock.svg' alt='lock icon' />
-            </div>
+            </label>
             <input
               className='login__form__checkbox'
               id='checkbox'
               type='checkbox'
             />
-            <label htmlFor='checkbox'>Remember me</label>
+            <label htmlFor='checkbox' tabIndex={3}>
+              Remember me
+            </label>
             <div className='login__form__buttons'>
-              <button className='login__form__buttons-login'>Login</button>
-              <button className='login__form__buttons-guestLogin'>
-                Guest log in
+              <button
+                type='submit'
+                className='login__form__buttons-login'
+                tabIndex={4}
+              >
+                Login
               </button>
+              <Link to='/summary'>
+                <button
+                  type='button'
+                  className='login__form__buttons-guestLogin'
+                  tabIndex={5}
+                >
+                  Guest log in
+                </button>
+              </Link>
             </div>
-          </div>
+          </form>
         </div>
         <div className='login__footer'>
-          <a href='#'>Privacy Policy</a> <a href='#'>Privacy Policy</a>
+          <Link to='/privacypolicy'>Privacy Policy</Link>
+          <Link to='/legalnotice'>Legal Notice</Link>
         </div>
       </div>
     </>

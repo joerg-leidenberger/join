@@ -96,6 +96,7 @@
       font-size: 2.3rem;
       color: $secondary-color-light;
       width: 11.2rem;
+      height: 4.8rem;
 
       background-color: $primary-color-light;
       border: none;
@@ -245,5 +246,12 @@
   &__footer {
     display: flex;
     gap: 2.4rem;
+
+    & a {
+      color: $txt-color-dark;
+      &:hover {
+        color: $primary-color-light;
+      }
+    }
   }
 }

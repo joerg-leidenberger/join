@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { arrowLeftSVG, joinSVG } from '../assets/img/img';
 
 function SignUp() {
@@ -10,7 +11,9 @@ function SignUp() {
         </div>
         <div className='signUp__body'>
           <div className='signUp__headlineContainer'>
-            <div className='signUp__arrowLeft'>{arrowLeftSVG()}</div>
+            <Link to='/' className='signUp__arrowLeft'>
+              {arrowLeftSVG()}
+            </Link>
             <div className='signUp__headline'>Sign up</div>
           </div>
           <form className='signUp__form'>
@@ -48,7 +51,7 @@ function SignUp() {
               required
             />
             <label htmlFor='checkbox' tabIndex={5}>
-              I accept the Privacy policy
+              I accept the &nbsp;<Link to='/privacypolicy'>Privacy policy</Link>
             </label>
             <div className='signUp__form__buttons'>
               <button className='signUp__form__buttons-signUp' tabIndex={6}>
@@ -58,7 +61,8 @@ function SignUp() {
           </form>
         </div>
         <div className='signUp__footer'>
-          <a href='#'>Privacy Policy</a> <a href='#'>Privacy Policy</a>
+          <Link to='/privacypolicy'>Privacy Policy</Link>
+          <Link to='/legalnotice'>Legal Notice</Link>
         </div>
       </div>
     </>

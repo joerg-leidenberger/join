@@ -172,6 +172,14 @@
     flex-direction: column;
     gap: 2rem;
 
+    & a {
+      color: $primary-color-light;
+      &:hover {
+        color: $primary-color-dark;
+        font-weight: 700;
+      }
+    }
+
     &__inputContainer {
       display: flex;
       justify-content: space-between;
@@ -252,5 +260,12 @@
     color: $secondary-color-light;
     display: flex;
     gap: 2.4rem;
+
+    & a {
+      color: $txt-color-light;
+      &:hover {
+        color: $primary-color-dark;
+      }
+    }
   }
 }
