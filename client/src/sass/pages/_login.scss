@@ -1,0 +1,183 @@
+@use '../abstracts/' as *;
+
+.login {
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6.7rem 8.6rem 4.27rem 7.7rem;
+
+  &__head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin-top: 1.3rem;
+  }
+
+  &__signUp {
+    font-size: 2.3rem;
+
+    width: 31.5rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3.5;
+
+    & div {
+      display: flex;
+      align-items: center;
+    }
+
+    & button {
+      cursor: pointer;
+      font-size: 2.3rem;
+      color: $secondary-color-light;
+      width: 11.2rem;
+
+      background-color: $primary-color-light;
+      border: none;
+      border-radius: 0.8rem;
+
+      &:hover {
+        background-color: $primary-color-dark;
+        box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2);
+      }
+
+      &:active {
+        color: $primary-color-light;
+        background-color: $secondary-color-light;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    width: 65.2rem;
+    height: 49.1rem;
+    padding: 4.8rem 11.5rem 4.8rem 11.5rem;
+
+    box-shadow: 0px 0px 10px 3px hsla(0, 0%, 0%, 0.08);
+
+    border-radius: 3rem;
+  }
+
+  &__headline {
+    height: 7.4rem;
+    flex-shrink: 0;
+    font-size: 4.8rem;
+    font-weight: 700;
+
+    border-bottom: 3px solid $primary-color-light;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    & input {
+      font-size: 1.9rem;
+
+      padding: 1.2rem 2.1rem;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid $bottom-border-color;
+
+      &::placeholder {
+        color: $bottom-border-color;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: space-around;
+
+      &-login {
+        cursor: pointer;
+        font-size: 2.3rem;
+        color: $secondary-color-light;
+        padding: 1rem 3.5rem;
+
+        background-color: $primary-color-light;
+        border: none;
+        border-radius: 0.8rem;
+
+        &:hover {
+          background-color: $primary-color-dark;
+          box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2);
+        }
+
+        &:active {
+          color: $primary-color-light;
+          background-color: $secondary-color-light;
+        }
+      }
+
+      &-guestLogin {
+        outline: none;
+        cursor: pointer;
+        font-size: 2.3rem;
+        color: hsla(218, 15%, 46%, 1);
+        padding: 1rem 3.5rem;
+
+        background-color: $secondary-color-light;
+        box-shadow: none;
+        border: 1px solid;
+        border-radius: 0.8rem;
+
+        &:hover {
+          color: $primary-color-light;
+          box-shadow: 0 0 0 1px $primary-color-light;
+        }
+
+        &:active {
+          color: $primary-color-dark;
+          border: 1px solid $primary-color-dark;
+          box-shadow: none;
+        }
+      }
+    }
+
+    &__checkbox {
+      display: none;
+      align-self: flex-start;
+
+      & + label {
+        width: 15rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::before {
+          content: url('../assets/img/checkbutton.svg');
+          display: inline-block;
+          margin-right: 0.8rem;
+          left: 0;
+          top: 0rem;
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+
+      &:checked + label::before {
+        content: url('../assets/img/checkbutton-checked.svg');
+        position: relative;
+        top: -0.1rem;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: 2.4rem;
+  }
+}
