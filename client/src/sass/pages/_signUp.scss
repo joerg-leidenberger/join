@@ -1,0 +1,256 @@
+@use '../abstracts/' as *;
+
+@keyframes logo {
+  0%,
+  40% {
+    width: 26.5rem;
+    height: 32.3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    fill: $primary-color-light;
+  }
+  100% {
+    position: absolute;
+    width: 10.03rem;
+    height: 12.197rem;
+    top: 8rem;
+    left: 7.7rem;
+    fill: $secondary-color-light;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes path {
+  0%,
+  40% {
+    fill: $primary-color-light;
+  }
+
+  100% {
+    fill: $secondary-color-light;
+  }
+}
+
+@keyframes bgAnimation {
+  0%,
+  40% {
+    background-color: $secondary-color-light;
+  }
+}
+
+.signUp {
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6.7rem 8.6rem 4.27rem 7.7rem;
+  background-color: $primary-color-light;
+
+  &__bgAnimation {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    animation: bgAnimation 500ms ease-in-out;
+    pointer-events: none;
+  }
+
+  &__head {
+    width: 100%;
+    height: 12.197rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    top: 8rem;
+    left: 7.7rem;
+    margin-top: 1.3rem;
+    & svg {
+      animation: logo 500ms ease-in-out;
+    }
+
+    & path {
+      fill: $secondary-color-light;
+      animation: path 500ms ease-in-out;
+    }
+  }
+
+  &__signUp {
+    font-size: 2.3rem;
+    width: 31.5rem;
+    height: 4.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3.5;
+
+    & div {
+      display: flex;
+      align-items: center;
+    }
+
+    & button {
+      cursor: pointer;
+      font-size: 2.3rem;
+      color: $secondary-color-light;
+      width: 11.2rem;
+
+      background-color: $primary-color-light;
+      border: none;
+      border-radius: 0.8rem;
+
+      &:hover {
+        background-color: $primary-color-dark;
+        box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2);
+      }
+
+      &:active {
+        color: $primary-color-light;
+        background-color: $secondary-color-light;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    width: 65.2rem;
+    padding: 4.8rem 11.5rem 4.8rem 11.5rem;
+
+    background-color: $secondary-color-light;
+    box-shadow: 0px 0px 10px 3px hsla(0, 0%, 0%, 0.08);
+
+    border-radius: 3rem;
+  }
+
+  &__headlineContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__arrowLeft {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    left: -2.4rem;
+
+    &:hover {
+      border-radius: 50%;
+      background-color: $menu-hover-color;
+
+      & path {
+        fill: $primary-color-light;
+      }
+    }
+  }
+
+  &__headline {
+    margin: 0 auto;
+    height: 7.4rem;
+    flex-shrink: 0;
+    font-size: 4.8rem;
+    font-weight: 700;
+
+    border-bottom: 3px solid $primary-color-light;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__inputContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2.1rem;
+      border-bottom: 1px solid $bottom-border-color;
+
+      &:focus-within {
+        border-bottom-color: $primary-color-light; /* Ändern der Linienfarbe auf Blau, wenn sich ein Kind im Fokus befindet */
+      }
+    }
+
+    & input {
+      font-size: 1.9rem;
+      outline: none;
+      border: none;
+
+      &::placeholder {
+        color: $bottom-border-color;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      justify-content: space-around;
+
+      &-signUp {
+        cursor: pointer;
+        font-size: 2.3rem;
+        color: $secondary-color-light;
+        padding: 1rem 3.5rem;
+
+        background-color: $primary-color-light;
+        border: none;
+        border-radius: 0.8rem;
+
+        &:hover {
+          background-color: $primary-color-dark;
+          box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2);
+        }
+
+        &:active {
+          color: $primary-color-light;
+          background-color: $secondary-color-light;
+        }
+      }
+    }
+
+    &__checkbox {
+      display: none;
+      align-self: flex-start;
+
+      & + label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::before {
+          content: url('../assets/img/checkbutton.svg');
+          display: inline-block;
+          margin-right: 0.8rem;
+          left: 0;
+          top: 0rem;
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+
+      &:checked + label::before {
+        content: url('../assets/img/checkbutton-checked.svg');
+        position: relative;
+        top: -0.1rem;
+      }
+    }
+  }
+
+  &__footer {
+    color: $secondary-color-light;
+    display: flex;
+    gap: 2.4rem;
+  }
+}
