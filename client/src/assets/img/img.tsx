@@ -19,6 +19,11 @@ import priobaja from './priobaja.svg';
 import arrowDropDown from './arrow_drop_down.svg';
 import checkButton from './checkbutton.svg';
 import checkButtonChecked from './checkbutton-checked.svg';
+import lockIcon from './lock.svg';
+import mailIcon from './mail.svg';
+import personIcon from './person.svg';
+import visibilityOffIcon from './visibility_off.svg';
+import visibilityIcon from './visibility.svg';
 
 const maskStyle: React.CSSProperties = {
   maskType: 'alpha',
@@ -250,4 +255,9 @@ export {
   searchSVG,
   plusButtonSVG,
   joinSVG,
+  lockIcon,
+  mailIcon,
+  personIcon,
+  visibilityOffIcon,
+  visibilityIcon,
 };
