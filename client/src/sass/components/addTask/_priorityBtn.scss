@@ -31,7 +31,7 @@
     border-bottom: 2px solid $priority-color-urgent;
 
     & img {
-      filter: brightness(100);
+      filter: brightness(0) invert(1);
     }
   }
 
@@ -41,7 +41,7 @@
     border-bottom: 2px solid $priority-color-medium;
 
     & img {
-      filter: brightness(100);
+      filter: brightness(0) invert(1);
     }
   }
 
@@ -51,7 +51,7 @@
     border-bottom: 2px solid $priority-color-low;
 
     & img {
-      filter: brightness(100);
+      filter: brightness(0) invert(1);
     }
   }
 
