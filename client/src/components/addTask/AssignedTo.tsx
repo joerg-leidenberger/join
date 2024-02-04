@@ -70,36 +70,6 @@ function AssignedTo() {
             </div>
           </div>
         </div>
-
-        {/* <div className='assignedTo__inputContainer'>
-          <input
-            className='assignedTo__input'
-            type='text'
-            id='assignedTo'
-            placeholder={placeholder}
-            onClick={openContactList}
-            onChange={handleInputChange}
-            value={assignedToInputValue}
-          ></input>
-          <span
-            className='assignedTo__arrowIcon'
-            onClick={() => {
-              toggleContactList();
-              handleInputValue();
-              handleIconRotate();
-            }}
-          >
-            <img
-              src={arrowDropDown}
-              alt='arrow icon'
-              className={`${
-                iconIsRotated
-                  ? 'assignedTo__arrowIcon-rotateDown'
-                  : 'assignedTo__arrowIcon-rotateUp'
-              }`}
-            />
-          </span>
-        </div> */}
         {showContactList && (
           <div className='assignedTo__contactList'>
             <div>
