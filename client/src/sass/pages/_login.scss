@@ -117,9 +117,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4rem;
+    gap: 2rem;
     width: 65.2rem;
-    height: 49.1rem;
     padding: 4.8rem 11.5rem 4.8rem 11.5rem;
 
     box-shadow: 0px 0px 10px 3px hsla(0, 0%, 0%, 0.08);
@@ -148,6 +147,10 @@
       align-items: center;
       padding: 1.2rem 2.1rem;
       border-bottom: 1px solid $bottom-border-color;
+
+      &:focus-within {
+        border-bottom: 1px solid $primary-color-light;
+      }
     }
 
     & input {
