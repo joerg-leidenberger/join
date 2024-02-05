@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 
-@keyframes logo {
+@keyframes logo-login {
   0%,
   40% {
     width: 26.5rem;
@@ -22,7 +22,7 @@
   }
 }
 
-@keyframes path {
+@keyframes path-login {
   0%,
   40% {
     fill: $secondary-color-light;
@@ -33,7 +33,7 @@
   }
 }
 
-@keyframes bgAnimation {
+@keyframes bgAnimation-login {
   0%,
   40% {
     background-color: $primary-color-light;
@@ -53,7 +53,7 @@
     position: absolute;
     width: 100vw;
     height: 100vh;
-    animation: bgAnimation 500ms ease-in-out;
+    animation: bgAnimation-login 500ms ease-in-out;
     pointer-events: none;
   }
 
@@ -69,11 +69,11 @@
     left: 7.7rem;
     margin-top: 1.3rem;
     & svg {
-      animation: logo 500ms ease-in-out;
+      animation: logo-login 500ms ease-in-out;
     }
 
     & path {
-      animation: path 500ms ease-in-out;
+      animation: path-login 500ms ease-in-out;
     }
   }
 

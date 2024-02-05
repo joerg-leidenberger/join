@@ -1,6 +1,6 @@
 @use '../abstracts/' as *;
 
-@keyframes logo {
+@keyframes logo-signUp {
   0%,
   40% {
     width: 26.5rem;
@@ -22,7 +22,7 @@
   }
 }
 
-@keyframes path {
+@keyframes path-signUp {
   0%,
   40% {
     fill: $primary-color-light;
@@ -33,7 +33,7 @@
   }
 }
 
-@keyframes bgAnimation {
+@keyframes bgAnimation-signUp {
   0%,
   40% {
     background-color: $secondary-color-light;
@@ -51,10 +51,11 @@
   background-color: $primary-color-light;
 
   &__bgAnimation {
+    z-index: 100;
     position: absolute;
     width: 100vw;
     height: 100vh;
-    animation: bgAnimation 500ms ease-in-out;
+    animation: bgAnimation-signUp 500ms ease-in-out;
     pointer-events: none;
   }
 
@@ -70,12 +71,12 @@
     left: 7.7rem;
     margin-top: 1.3rem;
     & svg {
-      animation: logo 500ms ease-in-out;
+      animation: logo-signUp 500ms ease-in-out;
     }
 
     & path {
       fill: $secondary-color-light;
-      animation: path 500ms ease-in-out;
+      animation: path-signUp 500ms ease-in-out;
     }
   }
 
