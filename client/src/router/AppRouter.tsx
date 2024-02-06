@@ -10,22 +10,29 @@ import LegalNotice from '../pages/LegalNotice';
 import PrivacyPolicy from '../pages/PrivacyPolicy';
 import SignUp from '../pages/SignUp';
 import Layout from '../layout/Layout';
-
-const login = true;
+import { useAuth } from '../context/AuthContext';
 
 const AppRouter = (): ReactElement => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <Routes>
       <Route
         path='/'
-        element={login ? <Navigate replace to='/summary' /> : <Login />}
+        element={
+          isAuthenticated ? <Navigate replace to='/summary' /> : <Login />
+        }
       />
       <Route
         path='/summary'
         element={
-          <Layout>
-            <Summary />
-          </Layout>
+          isAuthenticated ? (
+            <Layout>
+              <Summary />
+            </Layout>
+          ) : (
+            <Login />
+          )
         }
       />
       <Route path='/login' element={<Login />} />
@@ -33,25 +40,37 @@ const AppRouter = (): ReactElement => {
       <Route
         path='/addtask'
         element={
-          <Layout>
-            <AddTask />
-          </Layout>
+          isAuthenticated ? (
+            <Layout>
+              <AddTask />
+            </Layout>
+          ) : (
+            <Login />
+          )
         }
       />
       <Route
         path='/board'
         element={
-          <Layout>
-            <Board />
-          </Layout>
+          isAuthenticated ? (
+            <Layout>
+              <Board />
+            </Layout>
+          ) : (
+            <Login />
+          )
         }
       />
       <Route
         path='/contacts'
         element={
-          <Layout>
-            <Contacts />
-          </Layout>
+          isAuthenticated ? (
+            <Layout>
+              <Contacts />
+            </Layout>
+          ) : (
+            <Login />
+          )
         }
       />
       <Route path='/legalnotice' element={<LegalNotice />} />
