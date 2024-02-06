@@ -3,6 +3,8 @@
 @keyframes logo-signUp {
   0%,
   40% {
+    position: absolute;
+    z-index: 9999;
     width: 26.5rem;
     height: 32.3rem;
     position: absolute;
