@@ -6,14 +6,14 @@ const jwtSecret = process.env.JWT_SECRET as string;
 
 async function signUp(req: Request, res: Response) {
   try {
-    const { name, email, password, color } = req.body;
+    const { name, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).send('This user already exists.');
     }
 
-    const user = new User({ name, email, password, color });
+    const user = new User({ name, email, password });
     await user.save();
 
     res.status(201).send('User successfully registered.');
@@ -34,7 +34,7 @@ async function login(req: Request, res: Response) {
 
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
-      return res.status(400).send('Wrond password.');
+      return res.status(400).send('Wrong password.');
     }
 
     const token = jwt.sign({ userId: user._id, email: user.email }, jwtSecret, {

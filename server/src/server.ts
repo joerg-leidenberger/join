@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import connect from './db/connect';
 import userRoutes from './routes/user.routes';
+import taskRoutes from './routes/task.routes';
 import authenticateToken from './middlewares/authMiddleware';
 
 dotenv.config();
@@ -13,7 +14,8 @@ const port = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/users', userRoutes);
+app.use('/api', userRoutes);
+app.use('/api', authenticateToken, taskRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
 export interface UserDocument extends mongoose.Document {
-  color?: string;
   name: string;
   email: string;
   password: string;
@@ -11,9 +10,6 @@ export interface UserDocument extends mongoose.Document {
 
 const UserSchema = new mongoose.Schema(
   {
-    color: {
-      type: String,
-    },
     name: {
       type: String,
       required: true,
@@ -26,8 +22,13 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
-      unique: true,
     },
+    tasks: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Task',
+      },
+    ],
   },
   { timestamps: true }
 );
@@ -37,7 +38,7 @@ UserSchema.pre('save', async function (next) {
 
   const salt = await bcrypt.genSalt(10);
 
-  const hash = await bcrypt.hashSync(this.password, salt);
+  const hash = await bcrypt.hash(this.password, salt);
 
   this.password = hash;
 
