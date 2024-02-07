@@ -7,11 +7,23 @@ import {
   editSVG,
 } from '../../assets/img/img';
 
-function Subtasks() {
+type SubtasksProps = {
+  subtasks: string[];
+  onChange: (subtasks: string[]) => void;
+};
+
+function Subtasks({ subtasks, onChange }: SubtasksProps) {
+  const [inputValue, setInputValue] = useState('');
   const [SubtaskInputValue, setSubtaskInputValue] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSubtaskInputValue(e.target.value);
+  };
+
+  const handleAddSubtask = () => {
+    if (!inputValue.trim()) return;
+    onChange([...subtasks, inputValue]);
+    setInputValue(''); // Reset input after adding
   };
 
   return (
@@ -26,8 +38,9 @@ function Subtasks() {
             type='text'
             id='subtasks'
             placeholder='Add new subtask'
+            value={inputValue}
             onChange={handleInputChange}
-            value={SubtaskInputValue}
+            onBlur={handleAddSubtask}
           ></input>
           {!SubtaskInputValue && (
             <div className='subtasks__icon'>{addSVG()}</div>

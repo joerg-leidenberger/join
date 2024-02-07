@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/users/login', {
+      const response = await fetch('http://localhost:3000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,10 +28,8 @@ function Login() {
       const { token } = await response.json();
 
       if (rememberMe) {
-        // Token im localStorage speichern, wenn Remember Me aktiviert ist
         localStorage.setItem('token', token);
       } else {
-        // Token im sessionStorage speichern, wenn Remember Me nicht aktiviert ist
         sessionStorage.setItem('token', token);
       }
 
@@ -70,7 +68,7 @@ function Login() {
             </label>
             <label className='login__form__inputContainer'>
               <input
-                type='text'
+                type='password'
                 placeholder='Password'
                 required
                 tabIndex={2}

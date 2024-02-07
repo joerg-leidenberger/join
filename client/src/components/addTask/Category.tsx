@@ -1,80 +1,62 @@
 import { useState } from 'react';
 import { arrowDropDown } from '../../assets/img/img';
 
-function Category() {
+type CategoryProps = {
+  category: string;
+  onChange: (category: string) => void;
+};
+
+function Category({ category, onChange }: CategoryProps) {
   const [iconIsRotated, setIconIsRotated] = useState(false);
   const [showCategoryList, setShowCategoryList] = useState(false);
-  const [activeCategory, setActiveCategory] = useState('Select task category');
 
   const handleActiveCategory = (category: string) => {
-    setActiveCategory(category);
+    onChange(category);
+    setShowCategoryList(false);
+    setIconIsRotated(false);
   };
 
-  const handleIconRotate = () => {
-    setIconIsRotated(!iconIsRotated);
-  };
-
-  const toggleContactList = () => {
+  const toggleCategoryList = () => {
     setShowCategoryList(!showCategoryList);
+    setIconIsRotated(!iconIsRotated);
   };
 
   return (
     <div className='category'>
       <div className='addTask__title'>Category</div>
-      <div className='category__borderBottom'>
-        <div
-          className='category__inputContainer'
-          onClick={() => {
-            toggleContactList();
-            handleIconRotate();
-          }}
-        >
+      <div className='category__borderBottom' onClick={toggleCategoryList}>
+        <div className='category__inputContainer'>
           <input
             className='category__input'
             type='text'
             id='category'
-            value={activeCategory}
+            value={category}
+            placeholder='Select task category'
             readOnly
-          ></input>
+          />
           <div className='category__icon'>
             <img
               src={arrowDropDown}
               alt='arrow icon'
-              className={`${
+              className={
                 iconIsRotated
                   ? 'category__icon-rotateDown'
                   : 'category__icon-rotateUp'
-              }`}
+              }
             />
           </div>
         </div>
       </div>
       {showCategoryList && (
         <div className='category__list'>
-          <div>
-            <ul
-              onClick={() => {
-                handleIconRotate();
-              }}
-            >
-              <li
-                onClick={() => {
-                  handleActiveCategory('Technical Task');
-                  setShowCategoryList(false);
-                }}
-              >
-                <div>Technical Task</div>
-              </li>
-              <li
-                onClick={() => {
-                  handleActiveCategory('User Story');
-                  setShowCategoryList(false);
-                }}
-              >
-                <div>User Story</div>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li onClick={() => handleActiveCategory('Technical Task')}>
+              <div>Technical Task</div>
+            </li>
+            <li onClick={() => handleActiveCategory('User Story')}>
+              <div>User Story</div>
+            </li>
+          </ul>
         </div>
       )}
     </div>

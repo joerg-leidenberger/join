@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { arrowDropDown, checkButton } from '../../assets/img/img';
 
-function AssignedTo() {
+type AssignedToProps = {
+  assignedTo: string[];
+  onChange: (assignedTo: string[]) => void;
+};
+
+function AssignedTo({ assignedTo, onChange }: AssignedToProps) {
   const [assignedToInputValue, setAssignedToInputValue] = useState('');
   const [iconIsRotated, setIconIsRotated] = useState(false);
   const [showContactList, setShowContactList] = useState(false);
@@ -31,6 +36,16 @@ function AssignedTo() {
     setShowContactList(true);
     setPlaceholder('');
     setIconIsRotated(true);
+  };
+
+  const handleSelectContact = (contact: string) => {
+    let updatedAssignedTo;
+    if (assignedTo.includes(contact)) {
+      updatedAssignedTo = assignedTo.filter((c) => c !== contact);
+    } else {
+      updatedAssignedTo = [...assignedTo, contact];
+    }
+    onChange(updatedAssignedTo);
   };
 
   return (
@@ -74,79 +89,17 @@ function AssignedTo() {
           <div className='assignedTo__contactList'>
             <div>
               <ul>
-                <li>
+                <li onClick={() => handleSelectContact('Anton Mayer')}>
                   <div>
                     <div className='assignedTo__contactInitials'>AM</div>
                     <span className='assignedTo__contactName'>Anton Mayer</span>
                   </div>
                   <img
-                    className='assignedTo__checkbox'
-                    src={checkButton}
-                    alt='checkbox icon'
-                  />
-                </li>
-                <li>
-                  <div>
-                    <div className='assignedTo__contactInitials'>AM</div>
-                    <span className='assignedTo__contactName'>Anton Mayer</span>
-                  </div>
-                  <img
-                    className='assignedTo__checkbox'
-                    src={checkButton}
-                    alt='checkbox icon'
-                  />
-                </li>
-                <li>
-                  <div>
-                    <div className='assignedTo__contactInitials'>AM</div>
-                    <span className='assignedTo__contactName'>Anton Mayer</span>
-                  </div>
-                  <img
-                    className='assignedTo__checkbox'
-                    src={checkButton}
-                    alt='checkbox icon'
-                  />
-                </li>
-                <li>
-                  <div>
-                    <div className='assignedTo__contactInitials'>AM</div>
-                    <span className='assignedTo__contactName'>Anton Mayer</span>
-                  </div>
-                  <img
-                    className='assignedTo__checkbox'
-                    src={checkButton}
-                    alt='checkbox icon'
-                  />
-                </li>
-                <li>
-                  <div>
-                    <div className='assignedTo__contactInitials'>AM</div>
-                    <span className='assignedTo__contactName'>Anton Mayer</span>
-                  </div>
-                  <img
-                    className='assignedTo__checkbox'
-                    src={checkButton}
-                    alt='checkbox icon'
-                  />
-                </li>
-                <li>
-                  <div>
-                    <div className='assignedTo__contactInitials'>AM</div>
-                    <span className='assignedTo__contactName'>Anton Mayer</span>
-                  </div>
-                  <img
-                    className='assignedTo__checkbox'
-                    src={checkButton}
-                    alt='checkbox icon'
-                  />
-                </li>
-                <li>
-                  <div>
-                    <div className='assignedTo__contactInitials'>AM</div>
-                    <span className='assignedTo__contactName'>Anton Mayer</span>
-                  </div>
-                  <img
-                    className='assignedTo__checkbox'
+                    className={
+                      assignedTo.includes('Anton Mayer')
+                        ? 'assignedTo__checkbox assignedTo__checkbox--selected'
+                        : 'assignedTo__checkbox'
+                    }
                     src={checkButton}
                     alt='checkbox icon'
                   />

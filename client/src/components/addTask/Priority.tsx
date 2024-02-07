@@ -1,32 +1,23 @@
-import { useState } from 'react';
 import PriorityBtn from './PriorityBtn';
 
-function Priority() {
-  const [activeButton, setActiveButton] = useState('Medium');
+type PriorityProps = {
+  priority: string;
+  onChange: (value: string) => void;
+};
 
-  const setPrio = (prio: string) => {
-    setActiveButton(prio);
-  };
-
+function Priority({ priority, onChange }: PriorityProps) {
   return (
     <div>
       <div className='addTask__title'>Priority:</div>
       <div className='priority'>
-        <PriorityBtn
-          prio='Urgent'
-          active={activeButton === 'Urgent'}
-          onClick={() => setPrio('Urgent')}
-        />
-        <PriorityBtn
-          prio='Medium'
-          active={activeButton === 'Medium'}
-          onClick={() => setPrio('Medium')}
-        />
-        <PriorityBtn
-          prio='Low'
-          active={activeButton === 'Low'}
-          onClick={() => setPrio('Low')}
-        />
+        {['Urgent', 'Medium', 'Low'].map((prio) => (
+          <PriorityBtn
+            key={prio}
+            prio={prio}
+            active={priority === prio}
+            onClick={() => onChange(prio)}
+          />
+        ))}
       </div>
     </div>
   );

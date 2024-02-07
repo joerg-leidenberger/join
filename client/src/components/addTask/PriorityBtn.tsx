@@ -1,7 +1,7 @@
 import { prioalta, priobaja, priomedia } from '../../assets/img/img';
 
 type Props = {
-  prio: 'Urgent' | 'Medium' | 'Low';
+  prio: string;
   active: boolean;
   onClick: () => void;
 };
