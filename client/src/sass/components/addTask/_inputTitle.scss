@@ -10,6 +10,10 @@
   border: none;
   border-bottom: 1px solid $bottom-border-color;
 
+  &:hover {
+    border-bottom: 1px solid $primary-color-dark;
+  }
+
   &::placeholder {
     color: $txt-color-placeholder;
     font-weight: 400;
