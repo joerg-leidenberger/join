@@ -32,8 +32,25 @@
   }
 
   &__subtasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: $txt-color-dark;
     font-size: 1.3rem;
+  }
+
+  &__progressbar {
+    height: 100%; /* Die Höhe des Fortschrittsbalkens füllt den Container aus */
+    background-color: $primary-color-light; /* Farbe des Fortschrittsbalkens */
+    width: 0%; /* Anfangsbreite des Fortschrittsbalkens, sollte dynamisch geändert werden */
+    border-radius: 16px; /* Abrundung der Ecken des Fortschrittsbalkens */
+    &__container {
+      width: 128px; /* Breite der gesamten Progressbar */
+      height: 8px; /* Höhe der Progressbar */
+      background-color: #e0e0e0; /* Hintergrundfarbe der Progressbar */
+      border-radius: 16px; /* Abrundung der Ecken */
+      overflow: hidden; /* Stellt sicher, dass der innere Fortschrittsbalken die Ränder des Containers respektiert */
+    }
   }
 
   &__footer {

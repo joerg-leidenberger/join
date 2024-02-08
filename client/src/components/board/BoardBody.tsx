@@ -6,6 +6,8 @@ type Task = {
   _id: string;
   title: string;
   status: 'toDo' | 'progress' | 'feedback' | 'done';
+  description: string;
+  category: string;
 };
 
 type TasksState = {
@@ -168,7 +170,8 @@ function BoardBody() {
                 key={task._id}
                 id={task._id}
                 title={task.title}
-                description={''}
+                description={task.description}
+                category={task.category}
               />
             ))
           )}
