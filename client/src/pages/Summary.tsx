@@ -9,26 +9,11 @@ import {
   todo,
 } from '../assets/img/img';
 import { useEffect, useState } from 'react';
-
-type Task = {
-  id: string;
-  status: 'toDo' | 'progress' | 'feedback' | 'done';
-  priority: 'Urgent';
-  dueDate: string;
-};
-type CountTaskStatus = {
-  toDo: number;
-  progress: number;
-  feedback: number;
-  done: number;
-};
-
-type CountTaskUrgent = {
-  Urgent: number;
-};
+import { Task, CountTaskStatus, CountTaskUrgent } from '../types/TaskTypes';
+import { fetchTasks } from '../api/api';
 
 function Summary() {
-  const [tasks, setTasks] = useState(null);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [countTaskUrgent, setCountTaskUrgent] = useState({ Urgent: 0 });
   const [closestDueDate, setClosestDueDate] = useState('');
   const [countTaskStatus, setCountTaskStatus] = useState({
@@ -39,29 +24,11 @@ function Summary() {
   });
 
   useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const token =
-          localStorage.getItem('token') || sessionStorage.getItem('token');
-        if (!token) {
-          throw new Error('No token found');
-        }
-
-        const response = await fetch('http://localhost:3000/api/tasks', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        const jsonData = await response.json();
-        setTasks(jsonData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+    const loadTasks = async () => {
+      const fetchedTasks = await fetchTasks();
+      setTasks(fetchedTasks);
     };
-
-    fetchTasks();
+    loadTasks();
   }, []);
 
   useEffect(() => {
