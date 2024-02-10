@@ -38,7 +38,7 @@ async function login(req: Request, res: Response) {
     }
 
     const token = jwt.sign({ userId: user._id, email: user.email }, jwtSecret, {
-      expiresIn: '1h',
+      expiresIn: '72h',
     });
 
     res.status(200).json({ message: 'Login successful.', token });
@@ -48,4 +48,33 @@ async function login(req: Request, res: Response) {
   }
 }
 
-export { signUp, login };
+async function getUserName(req: Request, res: Response) {
+  const token = req.headers.authorization?.split(' ')[1];
+
+  if (!token) {
+    return res.status(401).send('No token provided.');
+  }
+
+  try {
+    const decoded = jwt.verify(token, jwtSecret) as jwt.JwtPayload;
+
+    if (!decoded.userId) {
+      return res.status(401).send('Unauthorized access.');
+    }
+
+    const user = await User.findById(decoded.userId);
+    if (!user) {
+      return res.status(404).send('User not found.');
+    }
+
+    res.json({ name: user.name });
+  } catch (error) {
+    console.error(error);
+    if (error instanceof jwt.JsonWebTokenError) {
+      return res.status(401).send('Invalid token.');
+    }
+    res.status(500).send('Error fetching user information.');
+  }
+}
+
+export { signUp, login, getUserName };
