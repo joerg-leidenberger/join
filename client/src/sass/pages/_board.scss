@@ -1,4 +1,7 @@
+@use '../abstracts/' as *;
+
 .board {
   display: flex;
   flex-direction: column;
+  background-color: $secondary-color-light;
 }

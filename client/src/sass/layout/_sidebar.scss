@@ -1,6 +1,7 @@
 @use '../abstracts' as *;
 
 .sidebar {
+  z-index: 1;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;

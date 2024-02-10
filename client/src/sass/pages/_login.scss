@@ -41,6 +41,8 @@
 }
 
 .login {
+  position: relative;
+  width: 144rem;
   height: 100vh;
   margin: 0 auto;
   display: flex;
@@ -50,6 +52,7 @@
   padding: 6.7rem 8.6rem 4.27rem 7.7rem;
 
   &__bgAnimation {
+    z-index: 1;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -65,6 +68,7 @@
   }
 
   &__logo {
+    z-index: 10;
     top: 8rem;
     left: 7.7rem;
     margin-top: 1.3rem;

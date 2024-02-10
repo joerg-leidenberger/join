@@ -1,3 +1,5 @@
+@use '../abstracts/' as *;
+
 .summaryUser {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,7 @@
   gap: 7.2rem;
 
   width: 100%;
+  background-color: $secondary-color-light;
 
   &__wrapper--top {
     display: flex;

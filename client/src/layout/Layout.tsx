@@ -7,10 +7,10 @@ type Props = {
 
 function layout({ children }: Props) {
   return (
-    <>
+    <div className='layout'>
       <Header />
       <Main>{children}</Main>
-    </>
+    </div>
   );
 }
 export default layout;

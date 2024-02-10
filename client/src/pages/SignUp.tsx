@@ -3,7 +3,7 @@ import { arrowLeftSVG, joinSVG } from '../assets/img/img';
 
 function SignUp() {
   return (
-    <>
+    <div className='signUpBackground'>
       <div className='signUp__bgAnimation'></div>
       <div className='signUp'>
         <div className='signUp__head'>
@@ -65,7 +65,7 @@ function SignUp() {
           <Link to='/legalnotice'>Legal Notice</Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default SignUp;
