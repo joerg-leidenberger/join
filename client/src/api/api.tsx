@@ -3,6 +3,7 @@ import { SignUpFormData, Task, TaskFormData } from '../types/TaskTypes';
 const API_TASKS = 'http://localhost:3000/api/tasks';
 const API_SIGNUP = 'http://localhost:3000/api/signup';
 const API_LOGIN = 'http://localhost:3000/api/login';
+const API_USER = 'http://localhost:3000/api/user';
 
 export const fetchTasks = async (): Promise<Task[]> => {
   const token =
@@ -108,4 +109,22 @@ export const postLogin = async (
   }
 
   login(token);
+};
+
+export const getName = async () => {
+  const token =
+    localStorage.getItem('token') || sessionStorage.getItem('token');
+  if (!token) throw new Error('No token found');
+
+  const response = await fetch(API_USER, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  if (!response.ok) throw new Error('Network response was not okay.');
+
+  return response.json();
 };
