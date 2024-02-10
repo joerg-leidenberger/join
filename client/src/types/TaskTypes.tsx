@@ -26,6 +26,14 @@ export type TaskFormData = {
   status: string;
 };
 
+export type SignUpFormData = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  acceptPolicy: boolean;
+};
+
 export type CountTaskStatus = {
   toDo: number;
   progress: number;
