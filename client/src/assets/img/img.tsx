@@ -254,9 +254,9 @@ const cancelSVG = () => {
       <path
         d='M12.0008 12.5001L17.2438 17.7431M6.75781 17.7431L12.0008 12.5001L6.75781 17.7431ZM17.2438 7.25708L11.9998 12.5001L17.2438 7.25708ZM11.9998 12.5001L6.75781 7.25708L11.9998 12.5001Z'
         stroke='#4589FF'
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );
