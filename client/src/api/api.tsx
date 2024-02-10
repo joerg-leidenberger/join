@@ -2,6 +2,7 @@ import { SignUpFormData, Task, TaskFormData } from '../types/TaskTypes';
 
 const API_TASKS = 'http://localhost:3000/api/tasks';
 const API_SIGNUP = 'http://localhost:3000/api/signup';
+const API_LOGIN = 'http://localhost:3000/api/login';
 
 export const fetchTasks = async (): Promise<Task[]> => {
   const token =
@@ -78,4 +79,33 @@ export const postSignUp = async (SignUpFormData: SignUpFormData) => {
   });
 
   if (!response.ok) throw new Error('Error register new User');
+};
+
+export const postLogin = async (
+  email: string,
+  password: string,
+  rememberMe: boolean,
+  login: (token: string) => void
+) => {
+  const response = await fetch(`${API_LOGIN}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Login fehlgeschlagen');
+  }
+
+  const { token } = await response.json();
+
+  if (rememberMe) {
+    localStorage.setItem('token', token);
+  } else {
+    sessionStorage.setItem('token', token);
+  }
+
+  login(token);
 };

@@ -1,42 +1,23 @@
 import { Link } from 'react-router-dom';
 import { joinSVG } from '../assets/img/img';
-import { useAuth } from '../context/AuthContext';
 import { useState } from 'react';
+import { postLogin } from '../api/api';
+import { useAuth } from '../context/AuthContext';
 
 function Login() {
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const { login } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+    await postLogin(email, password, rememberMe, login);
+  };
 
-      if (!response.ok) {
-        throw new Error('Login fehlgeschlagen');
-      }
-
-      const { token } = await response.json();
-
-      if (rememberMe) {
-        localStorage.setItem('token', token);
-      } else {
-        sessionStorage.setItem('token', token);
-      }
-
-      login(token);
-    } catch (error) {
-      console.error(error);
-    }
+  const handleGuestLogin = async () => {
+    await postLogin('guest@guest.de', 'guest', false, login); // Annahme: Gast bleibt nicht eingeloggt (rememberMe = false)
   };
 
   return (
@@ -95,15 +76,14 @@ function Login() {
               >
                 Login
               </button>
-              <Link to='/summary'>
-                <button
-                  type='button'
-                  className='login__form__buttons-guestLogin'
-                  tabIndex={5}
-                >
-                  Guest log in
-                </button>
-              </Link>
+              <button
+                type='button'
+                className='login__form__buttons-guestLogin'
+                tabIndex={5}
+                onClick={handleGuestLogin}
+              >
+                Guest log in
+              </button>
             </div>
           </form>
         </div>
