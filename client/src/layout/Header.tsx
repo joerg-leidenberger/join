@@ -30,7 +30,9 @@ function Header() {
 
   return (
     <header className='header'>
-      <img className='header__logo' src={logo} alt='logo' />
+      <NavLink to='../'>
+        <img className='header__logo' src={logo} alt='logo' />
+      </NavLink>
       <input type='checkbox' id='menu-toggle' hidden></input>
       <label htmlFor='menu-toggle' className='header__menu'>
         <span>Kanban Project Management Tool</span>
