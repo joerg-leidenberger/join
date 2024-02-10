@@ -8,6 +8,7 @@ import Priority from '../components/addTask/Priority';
 import Subtasks from '../components/addTask/Subtasks';
 import { TaskFormData } from '../types/TaskTypes';
 import { postTask } from '../api/api';
+import { cancelSVG, checkSVG } from '../assets/img/img';
 
 function AddTask() {
   const [formData, setFormData] = useState<TaskFormData>({
@@ -20,6 +21,19 @@ function AddTask() {
     subtasks: [],
     status: 'toDo',
   });
+
+  const handleReset = () => {
+    setFormData({
+      title: '',
+      priority: 'Medium',
+      category: '',
+      description: '',
+      dueDate: '',
+      assignedTo: [],
+      subtasks: [],
+      status: 'toDo',
+    });
+  };
 
   const handleChange = <T extends keyof TaskFormData>(
     name: T,
@@ -37,7 +51,7 @@ function AddTask() {
   return (
     <div className='addTask'>
       <div className='addTask__form'>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id='addTask'>
           <EnterTitle
             title={formData.title}
             onChange={(value) => handleChange('title', value)}
@@ -66,8 +80,21 @@ function AddTask() {
             subtasks={formData.subtasks}
             onChange={(value) => handleChange('subtasks', value)}
           />
-          <button type='submit'>Absenden</button>
         </form>
+      </div>
+      <div className='addTask__buttonContainer'>
+        <button
+          className='addTask__button-clear'
+          type='button'
+          onClick={handleReset}
+        >
+          <div>Clear</div>
+          <div>{cancelSVG()}</div>
+        </button>
+        <button className='addTask__button-create' form='addTask' type='submit'>
+          <div>Creat task</div>
+          <div>{checkSVG()}</div>
+        </button>
       </div>
     </div>
   );

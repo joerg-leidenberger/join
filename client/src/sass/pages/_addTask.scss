@@ -6,6 +6,7 @@
   &__form {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     gap: 2.4rem;
 
     color: $txt-color-medium;
@@ -22,6 +23,103 @@
     font-weight: 700;
     & span {
       font-weight: 400;
+    }
+  }
+
+  &__buttonContainer {
+    width: 72rem;
+    display: flex;
+    gap: 2.5rem;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 4.2rem 5.5rem 0;
+  }
+
+  &__button {
+    &-clear {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      color: $txt-color-medium;
+      font-size: 2.3rem;
+
+      width: 13.6rem;
+      height: 6.1rem;
+      padding: 1.6rem 1rem;
+
+      background-color: $secondary-color-light;
+      border: 1px solid $txt-color-medium;
+      border-radius: 1rem;
+
+      & div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & path {
+          stroke: hsl(219, 25%, 35%);
+        }
+      }
+
+      &:hover {
+        color: $primary-color-light;
+        border: 2px solid $primary-color-light;
+        box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2);
+        padding: calc(1.6rem - 1px) calc(1rem - 1px);
+
+        & path {
+          stroke: hsla(218, 100%, 64%, 1);
+        }
+      }
+
+      &:active {
+        color: $primary-color-dark;
+        border: 1px solid $primary-color-dark;
+        & path {
+          stroke: hsla(218, 100%, 50%, 1);
+        }
+      }
+    }
+    &-create {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      color: $secondary-color-light;
+      font-size: 2.3rem;
+
+      width: 17.4rem;
+      height: 6.1;
+      padding: 1.6rem 1rem;
+
+      background-color: $primary-color-light;
+      border: none;
+      border-radius: 1rem;
+
+      & div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & path {
+          fill: $secondary-color-light;
+        }
+      }
+
+      &:hover {
+        background-color: $primary-color-dark;
+        box-shadow: 0px 4px 8px 0px hsla(0, 0%, 0%, 0.2);
+      }
+
+      &:active {
+        color: $primary-color-light;
+        background-color: $secondary-color-light;
+
+        & path {
+          fill: hsla(218, 100%, 64%, 1);
+        }
+      }
     }
   }
 }
