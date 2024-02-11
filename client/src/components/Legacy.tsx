@@ -1,8 +1,20 @@
+import { NavLink } from 'react-router-dom';
+
 function Legacy() {
   return (
     <div className='legacy'>
-      <a href='#'>Privacy Policy</a>
-      <a href='#'>Legal notice</a>
+      <NavLink
+        to='../privacypolicy'
+        className={({ isActive }) => (isActive ? 'active-link-legacy' : '')}
+      >
+        Privacy Policy
+      </NavLink>
+      <NavLink
+        to='../legalnotice'
+        className={({ isActive }) => (isActive ? 'active-link-legacy' : '')}
+      >
+        Legal notice
+      </NavLink>
     </div>
   );
 }

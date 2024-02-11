@@ -73,8 +73,30 @@ const AppRouter = (): ReactElement => {
           )
         }
       />
-      <Route path='/legalnotice' element={<LegalNotice />} />
-      <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+      <Route
+        path='/legalnotice'
+        element={
+          isAuthenticated ? (
+            <Layout>
+              <LegalNotice />
+            </Layout>
+          ) : (
+            <Login />
+          )
+        }
+      />
+      <Route
+        path='/privacypolicy'
+        element={
+          isAuthenticated ? (
+            <Layout>
+              <PrivacyPolicy />
+            </Layout>
+          ) : (
+            <Login />
+          )
+        }
+      />
     </Routes>
   );
 };

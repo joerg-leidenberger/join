@@ -6,25 +6,37 @@ function Menu() {
     <div className='menu'>
       <ul>
         <li>
-          <NavLink to='../summary'>
+          <NavLink
+            to='../summary'
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
+          >
             <img src={summary} alt='summary icon' />
             <span>Summary</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to='../addTask'>
+          <NavLink
+            to='../addTask'
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
+          >
             <img src={add_task} alt='add task icon' />
             <span>Add Task</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to='../board'>
+          <NavLink
+            to='../board'
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
+          >
             <img src={board} alt='board icon' />
             <span>Board</span>
           </NavLink>
         </li>
         <li>
-          <NavLink to='../contacts'>
+          <NavLink
+            to='../contacts'
+            className={({ isActive }) => (isActive ? 'active-link' : '')}
+          >
             <img src={calendar} alt='contacts icon' />
             <span>Contacts</span>
           </NavLink>

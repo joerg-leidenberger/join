@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { help, logo } from '../assets/img/img';
 import { useAuth } from '../context/AuthContext';
 import { getName } from '../api/api';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function Header() {
   const [initials, setInitials] = useState('');
@@ -10,6 +10,31 @@ function Header() {
   const handleLogout = () => {
     logout();
   };
+
+  const menuToggleRef = useRef<HTMLInputElement | null>(null);
+  const dropdownMenuRef = useRef<HTMLDivElement | null>(null);
+  const closeMenu = () => {
+    const menuToggle = document.getElementById(
+      'menu-toggle'
+    ) as HTMLInputElement;
+    if (menuToggle) menuToggle.checked = false;
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        menuToggleRef.current &&
+        !menuToggleRef.current.contains(event.target as Node) &&
+        dropdownMenuRef.current &&
+        !dropdownMenuRef.current.contains(event.target as Node)
+      ) {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
 
   useEffect(() => {
     const loadName = async () => {
@@ -33,7 +58,12 @@ function Header() {
       <NavLink to='../'>
         <img className='header__logo' src={logo} alt='logo' />
       </NavLink>
-      <input type='checkbox' id='menu-toggle' hidden></input>
+      <input
+        ref={menuToggleRef}
+        type='checkbox'
+        id='menu-toggle'
+        hidden
+      ></input>
       <label htmlFor='menu-toggle' className='header__menu'>
         <span>Kanban Project Management Tool</span>
         <NavLink to='../help'>
@@ -43,12 +73,12 @@ function Header() {
           <span>{initials}</span>
         </div>
       </label>
-      <div className='dropdown-content'>
+      <div className='dropdown-content' ref={dropdownMenuRef}>
         <div className='dropdown-content__menu'>
-          <NavLink to='../legalnotice'>
+          <NavLink to='../legalnotice' onClick={closeMenu}>
             <div>Legal Notice</div>
           </NavLink>
-          <NavLink to='../pricacypolicy'>
+          <NavLink to='../privacypolicy' onClick={closeMenu}>
             <div>Privacy Policy</div>
           </NavLink>
           <div onClick={handleLogout}>Logout</div>
