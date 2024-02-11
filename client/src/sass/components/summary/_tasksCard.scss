@@ -15,12 +15,13 @@
   border-radius: 3rem;
   box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
 
-  transition: ease-in-out 100ms;
+  transition: ease-in-out 200ms;
 
   &-board {
     transform-origin: right top;
     width: 20.8rem;
     height: 19.1rem;
+    transition: ease-in-out 100ms;
 
     &:hover {
       transform: scale(1.2, 1.05) !important;
@@ -37,6 +38,7 @@
   &-toDo {
     background-color: $menu-active-color;
     transform-origin: left top;
+    transition: ease-in-out 100ms;
 
     &:hover {
       z-index: 2;
