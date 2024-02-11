@@ -1,8 +1,7 @@
 @use 'menu';
 @use 'legacy';
-@use 'summary/greeting';
 @use 'summary/urgencyInfoCard';
-@use 'summary/tasksCount';
+@use 'summary/tasksCard';
 @use 'summary/urgentTasksCount';
 @use 'contacts/addContactBtn';
 @use 'contacts/contactList';

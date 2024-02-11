@@ -1,5 +1,3 @@
-import { boardsummery, urgent } from '../../assets/img/img';
-
 type Props = {
   image: string;
   title: string | React.ReactNode;
@@ -7,20 +5,32 @@ type Props = {
 };
 
 function TasksCard({ image, title, count }: Props) {
-  const isTasksCount = image !== urgent ? 'tasksCount' : 'urgentTasksCount';
-  const isBoardTask = image !== boardsummery ? '' : '19.1rem';
+  const tasksCard: string =
+    title === 'Tasks Urgent' ? 'urgentTasksCount' : 'tasksCard';
 
+  const modify = () => {
+    switch (title) {
+      case 'Task in Board':
+        return 'tasksCard-board';
+      case 'Tasks To-do':
+        return 'tasksCard-toDo';
+      case 'Tasks Done':
+        return 'tasksCard-done';
+      default:
+        return '';
+    }
+  };
   return (
-    <div className={isTasksCount} style={{ height: `${isBoardTask}` }}>
-      <div className={isTasksCount + '__container'}>
-        <div className={isTasksCount + '__wrapper'}>
+    <div className={`${tasksCard} ${modify()}`}>
+      <div className={tasksCard + '__container'}>
+        <div className={tasksCard + '__wrapper'}>
           <div
-            className={isTasksCount + '__img'}
+            className={tasksCard + '__img'}
             style={{ backgroundImage: `url(${image})` }}
           ></div>
-          <span className={isTasksCount + '__number'}>{count}</span>
+          <span className={tasksCard + '__number'}>{count}</span>
         </div>
-        <div className={isTasksCount + '__title'}>{title}</div>
+        <div className={tasksCard + '__title'}>{title}</div>
       </div>
     </div>
   );

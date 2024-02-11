@@ -1,6 +1,5 @@
 import UrgencyInfoCard from '../components/summary/UrgencyInfoCard';
 import TasksInfoCard from '../components/summary/TasksInfoCard';
-import Greeting from '../components/Greeting';
 import {
   boardsummery,
   done,
@@ -10,18 +9,36 @@ import {
 } from '../assets/img/img';
 import { useEffect, useState } from 'react';
 import { Task, CountTaskStatus, CountTaskUrgent } from '../types/TaskTypes';
-import { fetchTasks } from '../api/api';
+import { fetchTasks, getName } from '../api/api';
+import { NavLink } from 'react-router-dom';
 
 function Summary() {
+  const [userName, setUserName] = useState('');
   const [tasks, setTasks] = useState<Task[]>([]);
   const [countTaskUrgent, setCountTaskUrgent] = useState({ Urgent: 0 });
-  const [closestDueDate, setClosestDueDate] = useState('');
+  const [closestDueDate, setClosestDueDate] = useState('You can relax.');
   const [countTaskStatus, setCountTaskStatus] = useState({
     toDo: 0,
     progress: 0,
     feedback: 0,
     done: 0,
   });
+
+  useEffect(() => {
+    const loadName = async () => {
+      const userName = await getName();
+
+      if (userName && userName.name) {
+        const words = userName.name.split(' ');
+        const name = words
+          .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ');
+
+        setUserName(name);
+      }
+    };
+    loadName();
+  }, []);
 
   useEffect(() => {
     const loadTasks = async () => {
@@ -75,48 +92,62 @@ function Summary() {
   return (
     <>
       <div className='summaryUser'>
-        <Greeting />
+        <div className='greeting'>
+          <h1>
+            Goord morning, <span>{userName}</span>
+          </h1>
+        </div>
         <div className='summaryUser__wrapper--top'>
-          <UrgencyInfoCard
-            count={countTaskUrgent.Urgent}
-            deadline={closestDueDate}
-          />
-          <TasksInfoCard
-            image={boardsummery}
-            title='Task in Board'
-            count={
-              countTaskStatus.toDo +
-              countTaskStatus.progress +
-              countTaskStatus.feedback +
-              countTaskStatus.done
-            }
-          />
+          <NavLink to='../board'>
+            <UrgencyInfoCard
+              count={countTaskUrgent.Urgent}
+              deadline={closestDueDate}
+            />
+          </NavLink>
+
+          <NavLink to='../board'>
+            <TasksInfoCard
+              image={boardsummery}
+              title='Task in Board'
+              count={
+                countTaskStatus.toDo +
+                countTaskStatus.progress +
+                countTaskStatus.feedback +
+                countTaskStatus.done
+              }
+            />
+          </NavLink>
         </div>
         <div className='summaryUser__wrapper--bottom'>
-          <TasksInfoCard
-            image={todo}
-            title='Tasks To-do'
-            count={countTaskStatus.toDo}
-          />
-          <TasksInfoCard
-            image={progress}
-            title='Task in Progress'
-            count={countTaskStatus.progress}
-          />
-          <TasksInfoCard
-            image={feedback}
-            title='Awaiting Feedback'
-            count={countTaskStatus.feedback}
-          />
-          <TasksInfoCard
-            image={done}
-            title={
-              <span>
-                Tasks <br /> Done
-              </span>
-            }
-            count={countTaskStatus.done}
-          />
+          <NavLink to='../board'>
+            <TasksInfoCard
+              image={todo}
+              title='Tasks To-do'
+              count={countTaskStatus.toDo}
+            />
+          </NavLink>
+
+          <NavLink to='../board'>
+            <TasksInfoCard
+              image={progress}
+              title='Task in Progress'
+              count={countTaskStatus.progress}
+            />
+          </NavLink>
+          <NavLink to='../board'>
+            <TasksInfoCard
+              image={feedback}
+              title='Awaiting Feedback'
+              count={countTaskStatus.feedback}
+            />
+          </NavLink>
+          <NavLink to='../board'>
+            <TasksInfoCard
+              image={done}
+              title='Tasks Done'
+              count={countTaskStatus.done}
+            />
+          </NavLink>
         </div>
       </div>
     </>

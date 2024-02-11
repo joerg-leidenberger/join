@@ -1,0 +1,139 @@
+@use '../../abstracts/' as *;
+
+.tasksCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 4rem;
+
+  width: 20.4rem;
+  height: 21.9rem;
+  border: 4rem;
+  border-radius: 3rem;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.16);
+
+  transition: ease-in-out 100ms;
+
+  &-board {
+    transform-origin: right top;
+    width: 20.8rem;
+    height: 19.1rem;
+
+    &:hover {
+      transform: scale(1.2, 1.05) !important;
+    }
+  }
+
+  &-done {
+    transform-origin: top center;
+    & .tasksCard__container {
+      width: 12rem;
+    }
+  }
+
+  &-toDo {
+    background-color: $menu-active-color;
+    transform-origin: left top;
+
+    &:hover {
+      z-index: 2;
+      background-color: $secondary-color-light !important;
+      transform: scale(1.2, 0.95) !important;
+      text-wrap: nowrap;
+
+      & .tasksCard__number,
+      .tasksCard__title {
+        color: $primary-color-dark !important;
+      }
+    }
+
+    &:active {
+      background-color: $primary-color-light !important;
+      & .tasksCard__number,
+      .tasksCard__title {
+        color: $secondary-color-light !important;
+      }
+    }
+  }
+
+  &__container {
+    width: 12.8rem;
+    height: 13.9rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  &__number {
+    color: $txt-color-dark;
+    font-size: 4.8rem;
+    font-weight: 700;
+  }
+
+  &__title {
+    color: $primary-color-light;
+    font-size: 23px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0.7rem;
+  }
+  &__img {
+    width: 6.5rem;
+    height: 6.6rem;
+    margin: 0.5rem 0;
+    background-position: center;
+    background-size: 120%;
+
+    border-radius: 50%;
+  }
+
+  &:hover {
+    transform: scale(1.05, 1.1);
+    background-color: $primary-color-dark;
+    border-radius: 0 3rem 3rem 3rem;
+
+    & .tasksCard > * {
+      transform: scale(0.95, 0.9);
+    }
+
+    & .tasksCard {
+      &__number {
+        color: $secondary-color-light;
+        font-size: 5.4rem;
+      }
+      &__title {
+        font-size: 2.4rem;
+        color: $secondary-color-light;
+      }
+
+      &__img {
+        border: 3px solid $secondary-color-light;
+      }
+    }
+  }
+
+  &:active {
+    transform: scale(1);
+    background-color: inherit;
+    border-radius: 3rem;
+
+    & .tasksCount {
+      &__number {
+        color: inherit;
+      }
+      &__title {
+        color: inherit;
+      }
+
+      &__img {
+        border: none;
+      }
+    }
+  }
+}
