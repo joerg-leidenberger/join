@@ -27,6 +27,7 @@
     gap: 1.3rem;
 
     &-date {
+      text-wrap: nowrap;
       color: $secondary-color-light;
       font-size: 3.3rem;
       font-weight: 700;
