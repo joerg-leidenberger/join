@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { arrowDropDown, checkButton } from '../../assets/img/img';
 
 type AssignedToProps = {
@@ -11,6 +11,7 @@ function AssignedTo({ assignedTo, onChange }: AssignedToProps) {
   const [iconIsRotated, setIconIsRotated] = useState(false);
   const [showContactList, setShowContactList] = useState(false);
   const [placeholder, setPlaceholder] = useState('Select contacts to assign');
+  const contactListRef = useRef<HTMLDivElement>(null);
 
   const handleIconRotate = () => {
     setIconIsRotated(!iconIsRotated);
@@ -47,6 +48,38 @@ function AssignedTo({ assignedTo, onChange }: AssignedToProps) {
     }
     onChange(updatedAssignedTo);
   };
+
+  useEffect(() => {
+    const isPartOf = (element: Node | null, className: string): boolean => {
+      while (element && element !== document.body) {
+        if (
+          element instanceof HTMLElement &&
+          element.classList.contains(className)
+        ) {
+          return true;
+        }
+        element = element.parentNode;
+      }
+      return false;
+    };
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        contactListRef.current &&
+        !contactListRef.current.contains(event.target as Node) &&
+        !isPartOf(event.target as Node, 'assignedTo__borderBottom')
+      ) {
+        setShowContactList(false);
+        setIconIsRotated(false);
+        setPlaceholder('Select contacts to assign');
+      }
+    };
+    if (showContactList) {
+      document.addEventListener('mouseup', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mouseup', handleClickOutside);
+    };
+  });
 
   return (
     <>
@@ -86,7 +119,7 @@ function AssignedTo({ assignedTo, onChange }: AssignedToProps) {
           </div>
         </div>
         {showContactList && (
-          <div className='assignedTo__contactList'>
+          <div className='assignedTo__contactList' ref={contactListRef}>
             <div>
               <ul>
                 <li onClick={() => handleSelectContact('Anton Mayer')}>
