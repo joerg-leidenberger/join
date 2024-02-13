@@ -18,7 +18,7 @@
 
   &__input {
     cursor: pointer;
-
+    width: 100%;
     color: $txt-color-dark;
     font-size: 1.9rem;
 
@@ -30,6 +30,18 @@
 
     &:focus {
       outline: none;
+    }
+  }
+
+  &__editSubtaskInput {
+    width: 70%;
+    font-size: inherit;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $primary-color-dark;
+    &:hover,
+    &:active {
+      background-color: $menu-hover-color;
     }
   }
 

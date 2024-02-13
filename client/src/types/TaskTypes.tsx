@@ -22,8 +22,18 @@ export type TaskFormData = {
   description: string;
   dueDate: string;
   assignedTo: string[];
-  subtasks: string[];
+  subtasks: Subtask[];
   status: string;
+};
+
+export type Subtask = {
+  id: string;
+  value: string;
+};
+
+export type SubtasksProps = {
+  subtasks: Subtask[];
+  onChange: (subtasks: Subtask[]) => void;
 };
 
 export type SignUpFormData = {

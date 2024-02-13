@@ -6,7 +6,7 @@ import DueDate from '../components/addTask/DueDate';
 import EnterTitle from '../components/addTask/EnterTitle';
 import Priority from '../components/addTask/Priority';
 import Subtasks from '../components/addTask/Subtasks';
-import { TaskFormData } from '../types/TaskTypes';
+import { TaskFormData, Subtask } from '../types/TaskTypes';
 import { postTask } from '../api/api';
 import { cancelSVG, checkSVG } from '../assets/img/img';
 
@@ -33,6 +33,10 @@ function AddTask() {
       subtasks: [],
       status: 'toDo',
     });
+  };
+
+  const handleSubtasksChange = (subtasks: Subtask[]) => {
+    setFormData((prev) => ({ ...prev, subtasks }));
   };
 
   const handleChange = <T extends keyof TaskFormData>(
@@ -78,7 +82,7 @@ function AddTask() {
           />
           <Subtasks
             subtasks={formData.subtasks}
-            onChange={(value) => handleChange('subtasks', value)}
+            onChange={handleSubtasksChange}
           />
         </form>
       </div>
