@@ -11,6 +11,7 @@ import PrivacyPolicy from '../pages/PrivacyPolicy';
 import SignUp from '../pages/SignUp';
 import Layout from '../layout/Layout';
 import { useAuth } from '../context/AuthContext';
+import { TaskPortalProvider } from '../context/TaskCardPortalContext';
 
 const AppRouter = (): ReactElement => {
   const { isAuthenticated } = useAuth();
@@ -53,9 +54,11 @@ const AppRouter = (): ReactElement => {
         path='/board'
         element={
           isAuthenticated ? (
-            <Layout>
-              <Board />
-            </Layout>
+            <TaskPortalProvider>
+              <Layout>
+                <Board />
+              </Layout>
+            </TaskPortalProvider>
           ) : (
             <Login />
           )

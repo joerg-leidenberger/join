@@ -10,6 +10,7 @@ function layout({ children }: Props) {
     <div className='layout'>
       <Header />
       <Main>{children}</Main>
+      <div id='portal-root'></div>
     </div>
   );
 }

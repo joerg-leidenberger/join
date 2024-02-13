@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTaskCardPortal } from '../../hooks/useTaskCardPortal';
 
 type Props = {
   id: string;
@@ -6,9 +7,34 @@ type Props = {
   description: string;
   category: string;
   totalSubtasks: number;
+  dueDate: string;
+  priority: string;
+  subtasks: [];
 };
 
-function TaskCard({ id, title, description, category, totalSubtasks }: Props) {
+function TaskCard({
+  id,
+  title,
+  description,
+  category,
+  totalSubtasks,
+  dueDate,
+  priority,
+  subtasks,
+}: Props) {
+  const { openPortal } = useTaskCardPortal();
+  const handleClick = () => {
+    openPortal({
+      id,
+      title,
+      description,
+      category,
+      totalSubtasks,
+      dueDate,
+      priority,
+      subtasks,
+    });
+  };
   const handleDragStart = (e: React.DragEvent) => {
     e.dataTransfer.setData('text/plain', id);
   };
@@ -19,7 +45,12 @@ function TaskCard({ id, title, description, category, totalSubtasks }: Props) {
       : {};
 
   return (
-    <div className='taskCard' draggable='true' onDragStart={handleDragStart}>
+    <div
+      className='taskCard'
+      draggable='true'
+      onDragStart={handleDragStart}
+      onClick={handleClick}
+    >
       <div className='taskCard__category' style={categoryStyle}>
         {category}
       </div>
