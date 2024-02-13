@@ -142,7 +142,12 @@ function Subtasks({ subtasks, onChange }: SubtasksProps) {
                 <>
                   <div>{subtask.value}</div>
                   <div className='subtasks__iconContainer subtasks__iconContainer-list'>
-                    <div className='subtasks__icon'>{editSVG()}</div>
+                    <div
+                      className='subtasks__icon'
+                      onClick={() => handleEditSubtask(subtask.id)}
+                    >
+                      {editSVG()}
+                    </div>
                     <div className='subtasks__line'></div>
                     <div
                       className='subtasks__icon'
