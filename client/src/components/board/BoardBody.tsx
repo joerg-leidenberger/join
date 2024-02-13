@@ -64,6 +64,7 @@ const BoardBody = () => {
                 title={task.title}
                 description={task.description}
                 category={task.category}
+                totalSubtasks={task.subtasks.length}
               />
             ))
           )}

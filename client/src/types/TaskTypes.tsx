@@ -6,6 +6,7 @@ export type Task = {
   category: string;
   priority: 'Urgent';
   dueDate: string;
+  subtasks: [];
 };
 
 export type TasksState = {

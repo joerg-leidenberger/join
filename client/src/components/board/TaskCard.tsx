@@ -5,9 +5,10 @@ type Props = {
   title: string;
   description: string;
   category: string;
+  totalSubtasks: number;
 };
 
-function TaskCard({ id, title, description, category }: Props) {
+function TaskCard({ id, title, description, category, totalSubtasks }: Props) {
   const handleDragStart = (e: React.DragEvent) => {
     e.dataTransfer.setData('text/plain', id);
   };
@@ -33,7 +34,7 @@ function TaskCard({ id, title, description, category }: Props) {
             style={{ width: '100%' }}
           ></div>
         </div>
-        <div>1/2 Subtasks</div>
+        <div>{totalSubtasks} Subtasks</div>
       </div>
       <div className='taskCard__footer'>
         <div className='taskCard__assignedTo'></div>
