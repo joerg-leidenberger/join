@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTaskCardPortal } from '../../hooks/useTaskCardPortal';
+import { lowSVG, mediumSVG, urgentSVG } from '../../assets/img/img';
 
 type Props = {
   id: string;
@@ -35,6 +36,17 @@ function TaskCard({
       subtasks,
     });
   };
+  const priorityIcon = () => {
+    switch (priority) {
+      case 'Urgent':
+        return urgentSVG();
+      case 'Low':
+        return lowSVG();
+      case 'Medium':
+        return mediumSVG();
+    }
+  };
+
   const handleDragStart = (e: React.DragEvent) => {
     e.dataTransfer.setData('text/plain', id);
   };
@@ -58,18 +70,20 @@ function TaskCard({
         <div className='taskCard__title'>{title}</div>
         <div className='taskCard__description'>{description}</div>
       </div>
-      <div className='taskCard__subtasks'>
-        <div className='taskCard__progressbar__container'>
-          <div
-            className='taskCard__progressbar'
-            style={{ width: '100%' }}
-          ></div>
+      {totalSubtasks > 0 && (
+        <div className='taskCard__subtasks'>
+          <div className='taskCard__progressbar__container'>
+            <div
+              className='taskCard__progressbar'
+              style={{ width: '100%' }}
+            ></div>
+          </div>
+          <div>{totalSubtasks} Subtasks</div>
         </div>
-        <div>{totalSubtasks} Subtasks</div>
-      </div>
+      )}
       <div className='taskCard__footer'>
         <div className='taskCard__assignedTo'></div>
-        <div className='taskCard__priority'></div>
+        <div className='taskCard__priority'>{priorityIcon()}</div>
       </div>
     </div>
   );
